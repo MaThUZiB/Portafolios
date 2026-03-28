@@ -1,0 +1,99 @@
+---PRESENTACION---
+
+Iván Matus Angulo
+Ingeniería en Administración y Comercio
+Técnico Superior Analista Programador
+Estudiante Ingeniería en Informatica
+
+	FOTO
+
+------------------
+---UBICACIÓN + CONTACTO---
+
+Email
+Teléfono
+GitHub
+Ciudad
+
+------------------
+---ACERCA DE MI---
+
+Actualmente soy estudiante de Ingeniería en Informática en jornada vespertina, con formación previa en Análisis y Programación y una Ingeniería en Administración y Comercio.
+
+Cuento con experiencia en el área administrativa, donde desarrollé habilidades en gestión de equipos, planificación estratégica y mejora continua de procesos. Esta base me ha permitido integrar una visión de negocio al desarrollo tecnológico.
+
+En el ámbito TI, tengo experiencia como desarrollador web trabajando con Laravel en entornos colaborativos bajo metodologías ágiles, participando en el desarrollo de aplicaciones y trabajo en equipo a gran escala.
+
+Además, he desarrollado diversos proyectos personales donde he utilizado distintos lenguajes, frameworks y herramientas modernas, incluyendo integración de IA, desarrollo web y conceptos de arquitectura de sistemas.
+
+Me caracterizo por ser una persona proactiva, con enfoque analítico y orientado a la mejora continua, capaz de proponer soluciones, implementarlas y evaluar sus resultados.
+
+-----------------
+---ESTUDIOS---
+
+Enseñanza Básica y Media (2012-2018)- Colegio Andalue Osorno
+Universidad Tecnológica de INACAP (2019-2020)- Técnico Superior Administración y Comercio
+Universidad Tecnológica de INACAP (2020-2022)- Ingeniería en Administración y Comercio
+Universidad Tecnológica de INACAP (2023-2025)- Técnico Superior Analista en Programación
+Universidad Tecnológica de INACAP (2025-Actualidad)- Ingeniería en Informática
+
+-----------------
+---EXPERIENCIA---
+
+Veterinaria Puyehue Asistente Administrativo
+Supermercado Pilmaiquén Asistente Administrativo
+EL Salto SpA Asesoría Administrativa 
+Bee Fractal Desarrollador Full Stack Laravel
+
+---------------	
+---PROYECTOS---
+
+Despliegue de aplicación en la nube (AWS)
+-Diseño de arquitectura en Amazon Web Services
+-Uso de EC2, RDS y S3
+-Configuración de VPC, subredes y seguridad
+
+Sistema de Auditoria Buenas Practicas Apícolas - Bee Fractal
+-Link Pagina
+
+Sistema de reservas de horas a peluqueria - Salon Vuala
+-Link git
+
+----------------
+---Certificaciones---
+
+AWS Academy Graduate - Cloud Foundations - Training 
+Ingles C2
+
+---------------
+---TECNOLOGIAS UTILIZADAS---
+
+Lenguajes:
+Python, PHP, JavaScript, TypeScript, C#
+
+Frameworks y librerías:
+Django, FastAPI, React, Vue, Next.js, Laravel, Tailwind, GSAP
+
+Cloud & Infraestructura 
+Amazon Web Services (EC2, RDS, S3, VPC), Azure
+
+Bases de datos:
+MySQL, Oracle Database, MongoDB, Firebase
+
+Herramientas y otros:
+Git, Linux, VirtualBox, Android Studio, Unity
+
+---------------
+
+
+🔥 Ejemplo de combinación PRO
+
+Si eliges azul:
+
+Fondo → #0F172A
+Tarjetas → #1F2937
+Texto → #E5E7EB
+Secundario → #9CA3AF
+Acento → #3B82F6
+
+👉 Esto es literalmente estilo Tailwind / apps modernas

@@ -1,0 +1,30 @@
+html {
+    background: linear-gradient(180deg, #111827, #1F2937, #000000);
+}
+.presentacion {
+    display: flex;
+    justify-content: left;
+    height: 60vh;
+}
+
+.presentacion h2 {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.animated-title span {
+    cursor: default;
+    background: linear-gradient(90deg, #A855F7, #C084FC, #D8B4FE);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transition: background-position 0.5s ease, transform 0.3s ease;
+    background-size: 200% 200%;
+}
+
+.animated-title span:hover {
+    background-position: right center;
+    transform: scale(1.2) translateY(-3px) rotate(5deg);
+}
