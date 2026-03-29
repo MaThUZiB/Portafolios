@@ -86,14 +86,58 @@ Git, Linux, VirtualBox, Android Studio, Unity
 ---------------
 
 
-🔥 Ejemplo de combinación PRO
+Paleta de Colores Principal
+	Colores de Fondo
+		Fondo Principal: #111827 (gray-900) → #1F2937 (gray-800) → #000000 (black)
+		Tarjetas Principales: #1F2937 con 50% opacidad (gray-800/50)
+		Tarjetas Secundarias: #1F2937 con 30% opacidad (gray-800/30)
+		Colores de Acento (Púrpura/Rosa)
+		Púrpura Primario: #A855F7 (purple-500)
+		Púrpura Claro: #C084FC (purple-400)
+		Púrpura Muy Claro: #D8B4FE (purple-300)
+		Rosa: #EC4899 (pink-500)
+		Rosa Claro: #F472B6 (pink-400)
+	Colores de Texto
+		Texto Principal: #FFFFFF (white)
+		Texto Secundario: #D1D5DB (gray-300)
+		Texto Terciario: #9CA3AF (gray-400)
+		Texto Desactivado: #6B7280 (gray-500)
+	Bordes
+		Bordes Normales: #374151 (gray-700)
+		Bordes de Acento: #A855F7 con 50% opacidad (purple-500/50)
+	Colores de Variantes (Stats)
+		Verde (Proyectos): #4ADE80 (green-400) → #34D399 (emerald-400)
+		Azul (Tecnologías): #60A5FA (blue-400) → #22D3EE (cyan-400)
+		Amarillo (Certificaciones): #EAB308 (yellow-500) → #F97316 (orange-500)
+	Efectos y Overlays
+		Overlay Sutil: #A855F7 con 10% opacidad (purple-500/10)
+		Fondo de Iconos: #A855F7 con 20% opacidad (purple-500/20)
+Códigos Hexadecimales de Tailwind CSS
 
-Si eliges azul:
+Purple:
+- purple-300: #D8B4FE
+- purple-400: #C084FC
+- purple-500: #A855F7
+- purple-600: #9333EA
+- purple-700: #7E22CE
 
-Fondo → #0F172A
-Tarjetas → #1F2937
-Texto → #E5E7EB
-Secundario → #9CA3AF
-Acento → #3B82F6
+Pink:
+- pink-400: #F472B6
+- pink-500: #EC4899
 
-👉 Esto es literalmente estilo Tailwind / apps modernas
+Gray:
+- gray-300: #D1D5DB
+- gray-400: #9CA3AF
+- gray-500: #6B7280
+- gray-700: #374151
+- gray-800: #1F2937
+- gray-900: #111827
+
+Accent Colors:
+- green-400: #4ADE80
+- emerald-400: #34D399
+- blue-400: #60A5FA
+- cyan-400: #22D3EE
+- yellow-500: #EAB308
+- orange-500: #F97316
+El esquema usa principalmente púrpura y rosa como colores de acento sobre un fondo oscuro (gris/negro), con toques de verde, azul y amarillo para diferenciar secciones específicas.

@@ -1,7 +1,11 @@
 html {
+    max-width: 1400px;
+    margin: auto;
     background: linear-gradient(180deg, #111827, #1F2937, #000000);
 }
 .presentacion {
+    border-radius: 7px;
+    background: linear-gradient(45deg, #020617, #111827, #2d054b);
     display: flex;
     justify-content: left;
     height: 60vh;
@@ -27,4 +31,74 @@ html {
 .animated-title span:hover {
     background-position: right center;
     transform: scale(1.2) translateY(-3px) rotate(5deg);
+}
+
+.pre-1 {
+    padding: 5rem;
+}
+.pre-1 img {
+    background-color: #dfc1fc;
+    border-radius: 50%;
+    border: 1px, solid, #dfc1fc;
+    width: 20rem;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.pre-1 img:hover {
+    transform: scale(1.1);
+    border-color: #9b42f5;
+    background-color: #9b42f5;
+}
+
+.tarjeta-presentacion {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+.titulos-presentacion {
+    font-weight: 500;
+    font-family: 'Inter';
+    color: #A855F7;
+}
+
+.titulos-presentacion div {
+    margin-bottom: 1rem;
+}
+
+.inge {
+    font-size: 1.7rem;
+}
+
+.tecni {
+    color: #9CA3AF;
+    font-size: 1.2rem;
+}
+
+.estu {
+    color: #e0c3fc;
+}
+
+.contactos {
+    font-size: 0.8rem;
+    font-family: 'Poppins';
+    color: #e9d7fc;
+    gap: 3.5rem;
+    display: flex;
+}
+
+.contactos div {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contactos div:hover {
+    transform: scale(1.1);
+}
+
+.contactos i {
+    color: #7110bb;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contactos div:hover i {
+    color: #C084FC;
 }
