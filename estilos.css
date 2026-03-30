@@ -1,14 +1,45 @@
-html {
+body {
+    margin: 0;
+    width: 100%;
+    background: linear-gradient(45deg, #020617, #111827, #2d054b);
+}
+
+.container-full {
+    width: 100%;
     max-width: 1400px;
     margin: auto;
-    background: linear-gradient(180deg, #111827, #1F2937, #000000);
+    padding: 0 2rem;
+}
+
+.container-2 {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.wrapper {
+    background: linear-gradient(
+        180deg,
+        #020617 0%,
+        #0f172a 40%,
+        #111827 70%,
+        #000000 100%
+    );
 }
 .presentacion {
     border-radius: 7px;
-    background: linear-gradient(45deg, #020617, #111827, #2d054b);
+    background: transparent;
     display: flex;
-    justify-content: left;
-    height: 60vh;
+    flex-direction: column;
+    padding: 3rem 0;
+    gap: 2rem;
+    min-height: 60vh;
+}
+
+.contenedor-superior {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
 }
 
 .presentacion h2 {
@@ -36,10 +67,11 @@ html {
 .pre-1 {
     padding: 5rem;
 }
+
 .pre-1 img {
     background-color: #dfc1fc;
     border-radius: 50%;
-    border: 1px, solid, #dfc1fc;
+    border: 1px solid #dfc1fc;
     width: 20rem;
     transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
@@ -55,6 +87,7 @@ html {
     flex-direction: column;
     gap: 2.5rem;
 }
+
 .titulos-presentacion {
     font-weight: 500;
     font-family: 'Inter';
@@ -95,10 +128,88 @@ html {
 }
 
 .contactos i {
+    font-size: 1.2rem;
     color: #7110bb;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .contactos div:hover i {
     color: #C084FC;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding: 0 5rem;
+}
+
+.cuadros {
+    margin: 3rem;
+}
+
+.descarga {
+    font-weight: 700;
+    color: #dfc1fc;
+    text-decoration: none;
+    font-family: 'Inter';
+    border-radius: 14px;
+    background-color: #2d054b;
+    border: 2px solid #7110bb;
+    padding: 1rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.descarga:hover {
+    transform: scale(1.1);
+    background-color: #7110bb;
+}
+
+.redes {
+    display: flex;
+    gap: 2.2rem;
+}
+
+.linkedin {
+    background: #0077B5;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+}
+
+.git {
+    background: #171515;
+}
+
+.redes a {
+    font-size: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.redes a:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.2);
+}
+
+.cuadros {
+
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+    background: linear-gradient(135deg, rgba(31,41,55,0.7), rgba(17,24,39,0.7));
+    border: 1px solid rgba(168,85,247,0.3);
+    border-radius: 14px;
+    padding: 4.5rem;
 }
