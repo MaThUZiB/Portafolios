@@ -18,14 +18,13 @@ body {
 }
 
 .wrapper {
-    background: linear-gradient(
-        180deg,
-        #020617 0%,
-        #0f172a 40%,
-        #111827 70%,
-        #000000 100%
-    );
+    background: linear-gradient(180deg,
+            #020617 0%,
+            #0f172a 40%,
+            #111827 70%,
+            #000000 100%);
 }
+
 .presentacion {
     border-radius: 7px;
     background: transparent;
@@ -39,7 +38,7 @@ body {
 .contenedor-superior {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 1rem;
 }
 
 .presentacion h2 {
@@ -65,7 +64,7 @@ body {
 }
 
 .pre-1 {
-    padding: 5rem;
+    padding: 1rem;
 }
 
 .pre-1 img {
@@ -91,7 +90,6 @@ body {
 .titulos-presentacion {
     font-weight: 500;
     font-family: 'Inter';
-    color: #A855F7;
 }
 
 .titulos-presentacion div {
@@ -99,11 +97,18 @@ body {
 }
 
 .inge {
+    background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 1.7rem;
 }
 
 .tecni {
-    color: #9CA3AF;
+    background: linear-gradient(135deg, #8B5CF6, #6366F1, #3B82F6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 1.2rem;
 }
 
@@ -114,7 +119,6 @@ body {
 .contactos {
     font-size: 0.8rem;
     font-family: 'Poppins';
-    color: #e9d7fc;
     gap: 3.5rem;
     display: flex;
 }
@@ -125,6 +129,26 @@ body {
 
 .contactos div:hover {
     transform: scale(1.1);
+}
+
+.correo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3B82F6, #0EA5E9, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tele {
+    background: linear-gradient(135deg, #3B82F6, #0EA5E9, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ciudad {
+    background: linear-gradient(135deg, #3B82F6, #0EA5E9, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .contactos i {
@@ -201,15 +225,42 @@ body {
 }
 
 .cuadros {
-
-    color: white;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
 }
 
 .box {
-    background: linear-gradient(135deg, rgba(31,41,55,0.7), rgba(17,24,39,0.7));
-    border: 1px solid rgba(168,85,247,0.3);
+    font-family: 'Poppins';
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.7), rgba(17, 24, 39, 0.7));
+    border: 1px solid rgba(168, 85, 247, 0.3);
     border-radius: 14px;
-    padding: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 110px;
+}
+
+.box p {
+    margin: 0;
+}
+
+.box i {
+    background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.number {
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #34D399, #6EE7B7, #A7F3D0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
