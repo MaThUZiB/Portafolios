@@ -3,7 +3,7 @@
 Iván Matus Angulo
 Ingeniería en Administración y Comercio
 Técnico Superior Analista Programador
-Estudiante Ingeniería en Informatica
+Estudiante Ingeniería en Informática
 
 	FOTO
 
@@ -53,20 +53,20 @@ Despliegue de aplicación en la nube (AWS)
 -Uso de EC2, RDS y S3
 -Configuración de VPC, subredes y seguridad
 
-Sistema de Auditoria Buenas Practicas Apícolas - Bee Fractal
+Sistema de Auditoría Buenas Prácticas Apícolas - Bee Fractal
 -Link Pagina
 
-Sistema de reservas de horas a peluqueria - Salon Vuala
+Sistema de reservas de horas a peluquería - Salón Vuala
 -Link git
 
 ----------------
 ---Certificaciones---
 
 AWS Academy Graduate - Cloud Foundations - Training 
-Ingles C2
+Inglés C2
 
 ---------------
----TECNOLOGIAS UTILIZADAS---
+---TECNOLOGÍAS UTILIZADAS---
 
 Lenguajes:
 Python, PHP, JavaScript, TypeScript, C#
