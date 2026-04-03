@@ -632,3 +632,340 @@ body {
     margin-top: 3rem;
     padding: 2rem;
 }
+
+.tabla {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* columnas tipo card */
+.columna-1,
+.columna-2 {
+    background: rgba(17, 12, 35, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    transition: all 0.3s ease;
+}
+
+.columna-1:hover,
+.columna-2:hover {
+    transform: translateY(-5px);
+    border-color: rgba(192, 132, 252, 0.6);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+}
+
+.list-estudios,
+.list-experiencia {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-estudios li,
+.list-experiencia li {
+    position: relative;
+    padding: 0.8rem 0.8rem 0.8rem 2rem;
+    margin-bottom: 0.6rem;
+    border-radius: 10px;
+
+    background: rgba(30, 27, 75, 0.4);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+
+    color: #d1d5db;
+    font-family: 'Inter';
+    font-size: 0.95rem;
+
+    transition: all 0.25s ease;
+}
+
+/* bullet personalizado */
+.list-estudios li::before,
+.list-experiencia li::before {
+    content: "●";
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    background-clip: text;
+    background: linear-gradient(135deg, #A855F7, #C084FC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* hover */
+.list-estudios li:hover,
+.list-experiencia li:hover {
+    transform: translateX(5px);
+    border-color: rgba(192, 132, 252, 0.5);
+    background: rgba(55, 48, 163, 0.3);
+}
+
+.titulos {
+    color: #C084FC;
+    font-weight: 600;
+}
+
+.cargo {
+    color: #34D399;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .tabla {
+        grid-template-columns: 1fr;
+    }
+}
+
+.timeline {
+    font-family: 'Inter';
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 2rem;
+}
+
+/* línea vertical */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #A855F7, #C084FC, transparent);
+}
+
+/* item */
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 0.5rem;
+}
+
+/* punto */
+.timeline-dot {
+    position: absolute;
+    left: 3px;
+    width: 15px;
+    height: 15px;
+    background: #A855F7;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 1px;
+    width: 14px;
+    height: 14px;
+    background: #A855F7;
+    border-radius: 50%;
+}
+
+.timeline-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.5);
+
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    70% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeline-card {
+    position: relative;
+    margin-left: 2rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 14px;
+    background: rgba(17, 12, 35, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    transition: all 0.3s ease;
+    flex: 1; /* 👈 IMPORTANTE */
+    min-height: 110px; /* 👈 uniformidad mínima */
+}
+
+/* hover */
+.timeline-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(192, 132, 252, 0.6);
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+}
+
+.timeline-card h4 {
+    min-height: 2.5rem;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #f3f4f6;
+}
+
+.empresa {
+    display: block;
+    color: #C084FC;
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+}
+
+.fecha {
+    display: block;
+    font-size: 0.8rem;
+    color: #9CA3AF;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-card p {
+    font-family: 'Inter';
+    font-size: 0.9rem;
+    color: #d1d5db;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-card {
+        margin-left: 1.5rem;
+    }
+}
+
+.estado {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    background: #065f46;
+    color: #34D399;
+    margin-left: auto;
+}
+
+.timeline-card::before {
+    font-family: "Poppins   ";
+    font-weight: 900;
+    position: relative;
+    left: -2.5rem;
+    top: 1.2rem;
+    color: #A855F7;
+}
+
+.footer {
+    margin-top: 4rem;
+    padding: 2rem 1rem;
+
+    background: linear-gradient(
+        135deg,
+        rgba(17, 12, 35, 0.9),
+        rgba(30, 27, 75, 0.7)
+    );
+
+    border-top: 1px solid rgba(168, 85, 247, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* izquierda */
+.footer-left h4 {
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    margin: 0;
+
+    background: linear-gradient(135deg, #A855F7, #C084FC, #3B82F6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-left p {
+    font-family: 'Inter';
+    font-size: 0.85rem;
+    color: #9CA3AF;
+    margin-top: 0.3rem;
+}
+
+/* centro (iconos) */
+.footer-center {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.footer-center a {
+    font-size: 1.3rem;
+    color: #A855F7;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    background: rgba(30, 27, 75, 0.4);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+
+    transition: all 0.25s ease;
+}
+
+.footer-center a:hover {
+    transform: translateY(-4px) scale(1.1);
+
+    color: white;
+    background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
+
+    box-shadow: 0 6px 15px rgba(168, 85, 247, 0.3);
+}
+
+/* derecha */
+.footer-right p {
+    font-family: 'Inter';
+    font-size: 0.8rem;
+    color: #6B7280;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
+
