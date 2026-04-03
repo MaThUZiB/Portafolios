@@ -1,7 +1,15 @@
 body {
     margin: 0;
     width: 100%;
-    background: linear-gradient(45deg, #020617, #111827, #2d054b);
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15), transparent 40%),
+        linear-gradient(45deg, #020617, #111827, #2d054b);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .container-full {
@@ -15,14 +23,6 @@ body {
     width: 100%;
     max-width: 1400px;
     margin: auto;
-}
-
-.wrapper {
-    background: linear-gradient(180deg,
-            #020617 0%,
-            #0f172a 40%,
-            #111827 70%,
-            #000000 100%);
 }
 
 .presentacion {
@@ -129,24 +129,31 @@ body {
 
 .contactos div:hover {
     transform: scale(1.1);
-}
+}   
 
 .correo {
     font-size: 1.1rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #3B82F6, #0EA5E9, #06B6D4);
+    background: linear-gradient(135deg, #FACC15, #F59E0B, #FB923C);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .tele {
-    background: linear-gradient(135deg, #3B82F6, #0EA5E9, #06B6D4);
+    font-size: 1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #22C55E, #4ADE80, #86EFAC);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .ciudad {
-    background: linear-gradient(135deg, #3B82F6, #0EA5E9, #06B6D4);
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #F472B6, #E879F9, #C084FC);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -232,17 +239,36 @@ body {
 
 .box {
     font-family: 'Poppins';
-    background: linear-gradient(135deg, rgba(31, 41, 55, 0.7), rgba(17, 24, 39, 0.7));
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    position: relative;
+    overflow: hidden;
+    background: rgba(17, 24, 39, 0.65);
+    backdrop-filter: blur(10px);
     border-radius: 14px;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid rgba(168, 85, 247, 0.2);
     padding: 2rem;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 110px;
+    transition: all 0.3s ease;
 }
 
+.box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left,
+        rgba(168, 85, 247, 0.25),
+        transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.box:hover::before {
+    opacity: 1;
+}
+
+.box:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(192, 132, 252, 0.6);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+}
 .box p {
     margin: 0;
 }
@@ -261,6 +287,184 @@ body {
     font-weight: 900;
     background: linear-gradient(135deg, #34D399, #6EE7B7, #A7F3D0);
     background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cuadros p {
+    font-weight: 700;
+    color: #eb89fa;
+}
+
+.acerca {
+    font-family: 'Inter';
+    color: #cbd5f5; 
+    border-radius: 14px;
+    padding: 25px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(17, 24, 39, 0.85),
+        rgba(30, 27, 75, 0.6)
+    );
+
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    backdrop-filter: blur(6px);
+}
+
+.parrafos {
+    margin-top: 1rem;
+    border-radius: 12px;
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.parrafos p {
+    color: #d1d5db; 
+    line-height: 1.6;
+}
+
+.parrafos p strong {
+    color: #C084FC; 
+}
+
+.encabe {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dfc1fc;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.encabe i {
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, #A855F7, #C084FC, #3B82F6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.acerca:hover {
+    border-color: rgba(192, 132, 252, 0.5);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+    transition: all 0.3s ease;
+}
+
+.parrafos span {
+    color: #A78BFA;
+    font-weight: 500;
+}
+
+.tecnologias {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.tec-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tec-header i {
+    font-size: 2rem;
+    color: #A855F7;
+}
+
+.tec-header h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dfc1fc;
+}
+
+
+.tec-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    align-items: stretch; /* Esto asegura que todas las celdas tengan igual altura */
+}
+
+.tec-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.categoria {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    
+    /* Fondo oscuro con ligera transparencia y efecto de vidrio */
+    background: rgba(17, 12, 35, 0.7);
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+    
+    /* Sombra interior suave */
+    box-shadow: inset 0 0 8px rgba(124, 58, 237, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.categoria:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(192, 132, 252, 0.5);
+    
+    /* Hover sutil, solo más luminosa y ligera */
+    background: rgba(29, 20, 60, 0.75);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.15), inset 0 0 12px rgba(192, 132, 252, 0.05);
+}
+
+.categoria h4 {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #d1d5db;
+    margin-bottom: 0.6rem;
+}
+
+
+.badges {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.badges li {
+    font-family: 'Inter';
+    font-size: 0.9rem; /* un poco más grande */
+    padding: 0.5rem 0.8rem; /* más acolchado */
+    border-radius: 12px; /* más suave que 999px */
+    background: rgba(30, 27, 75, 0.4); /* fondo más visible */
+    color: #e0d7fa;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.badges li:hover {
+    color: #fff;
+    background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
+    border-color: rgba(192, 132, 252, 0.8);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+    transform: translateY(-3px) scale(1.05);
+}
+.categoria h4 i {
+    margin-right: 0.5rem;
+    color: #A855F7; /* gradiente opcional si quieres */
+    background-clip: text;
+    background: linear-gradient(135deg, #A855F7, #C084FC, #3B82F6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
