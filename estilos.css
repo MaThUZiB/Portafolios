@@ -12,6 +12,10 @@ body {
     background-attachment: fixed;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container-full {
     width: 100%;
     max-width: 1400px;
@@ -39,12 +43,35 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
 }
 
-.presentacion h2 {
+.pre-2 {
+    flex: 1;
     font-family: 'Poppins';
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 3rem;
+}
+
+.animated-title {
+    padding-top: 0;
+}
+
+.translate-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-weight: 700;
+    color: #dfc1fc;
+    font-family: 'Inter';
+    border-radius: 14px;
+    background-color: #2d054b;
+    border: 2px solid #7110bb;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-size: 0.9rem;
+    z-index: 10;
 }
 
 .animated-title span {
@@ -56,6 +83,7 @@ body {
     display: inline-block;
     transition: background-position 0.5s ease, transform 0.3s ease;
     background-size: 200% 200%;
+    will-change: transform, opacity;
 }
 
 .animated-title span:hover {
@@ -87,33 +115,27 @@ body {
     gap: 2.5rem;
 }
 
-.titulos-presentacion {
-    font-weight: 500;
-    font-family: 'Inter';
-}
-
 .titulos-presentacion div {
+    font-family: 'Poppins';
     margin-bottom: 1rem;
+    margin-left: 70px;
+    font-weight: 600;
+    color: #dfc1fc;
 }
 
 .inge {
-    background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
+    font-weight: 700;
 }
 
 .tecni {
-    background: linear-gradient(135deg, #8B5CF6, #6366F1, #3B82F6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-size: 1.2rem;
+    opacity: 0.9;
 }
 
 .estu {
-    color: #e0c3fc;
+    font-size: 1rem;
+    opacity: 0.8;
 }
 
 .contactos {
@@ -124,29 +146,51 @@ body {
 }
 
 .contactos div {
-    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    will-change: transform;
+    transform-origin: center;
 }
 
 .contactos div:hover {
     transform: scale(1.1);
-}   
+}
+
+.contactos i {
+    font-size: 1.2rem;
+    color: #7110bb;
+    transition: transform 0.2s ease, color 0.2s ease;
+    transform-origin: center;
+}
+
+.contactos div:hover i {
+    color: #C084FC;
+    transform: scale(1.2);
+}
 
 .correo {
     font-size: 1.1rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #FACC15, #F59E0B, #FB923C);
+    background: linear-gradient(135deg, #F472B6, #E879F9, #C084FC);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: transform 0.2s ease;
+    transform-origin: center;
 }
 
 .tele {
     font-size: 1rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #22C55E, #4ADE80, #86EFAC);
+    background: linear-gradient(135deg, #F472B6, #E879F9, #C084FC);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: transform 0.2s ease;
+    transform-origin: center;
 }
 
 .ciudad {
@@ -156,16 +200,8 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.contactos i {
-    font-size: 1.2rem;
-    color: #7110bb;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.contactos div:hover i {
-    color: #C084FC;
+    transition: transform 0.2s ease;
+    transform-origin: center;
 }
 
 .botones {
@@ -178,6 +214,10 @@ body {
 
 .cuadros {
     margin: 3rem;
+}
+
+.cuadros a {
+    text-decoration: none;
 }
 
 .descarga {
@@ -194,6 +234,23 @@ body {
 
 .descarga:hover {
     transform: scale(1.1);
+    background-color: #7110bb;
+}
+
+.translate-btn {
+    font-weight: 700;
+    color: #dfc1fc;
+    font-family: 'Inter';
+    border-radius: 14px;
+    background-color: #2d054b;
+    border: 2px solid #7110bb;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.translate-btn:hover {
+    transform: scale(1.05);
     background-color: #7110bb;
 }
 
@@ -238,6 +295,7 @@ body {
 }
 
 .box {
+    display: block;
     font-family: 'Poppins';
     position: relative;
     overflow: hidden;
@@ -525,7 +583,9 @@ body {
         grid-template-columns: 1fr;
     }
 }
-
+.certificaciones a {
+    text-decoration: none;
+}
 /* título proyecto */
 .titulo-proyecto {
     font-family: 'Inter';
@@ -671,14 +731,11 @@ body {
     padding: 0.8rem 0.8rem 0.8rem 2rem;
     margin-bottom: 0.6rem;
     border-radius: 10px;
-
     background: rgba(30, 27, 75, 0.4);
     border: 1px solid rgba(168, 85, 247, 0.15);
-
     color: #d1d5db;
     font-family: 'Inter';
     font-size: 0.95rem;
-
     transition: all 0.25s ease;
 }
 
@@ -775,7 +832,6 @@ body {
     inset: 0;
     border-radius: 50%;
     background: rgba(168, 85, 247, 0.5);
-
     animation: ripple 2s infinite;
 }
 
@@ -852,7 +908,6 @@ body {
     .timeline {
         padding-left: 1.5rem;
     }
-
     .timeline-card {
         margin-left: 1.5rem;
     }
@@ -879,13 +934,7 @@ body {
 .footer {
     margin-top: 4rem;
     padding: 2rem 1rem;
-
-    background: linear-gradient(
-        135deg,
-        rgba(17, 12, 35, 0.9),
-        rgba(30, 27, 75, 0.7)
-    );
-
+    background: linear-gradient(135deg, rgba(17, 12, 35, 0.9), rgba(30, 27, 75, 0.7));
     border-top: 1px solid rgba(168, 85, 247, 0.2);
     backdrop-filter: blur(10px);
 }
@@ -893,7 +942,6 @@ body {
 .footer-content {
     max-width: 1400px;
     margin: auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -929,29 +977,25 @@ body {
 .footer-center a {
     font-size: 1.3rem;
     color: #A855F7;
-
+    text-decoration: none;
     width: 40px;
     height: 40px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 10px;
     background: rgba(30, 27, 75, 0.4);
     border: 1px solid rgba(168, 85, 247, 0.2);
-
     transition: all 0.25s ease;
 }
 
 .footer-center a:hover {
     transform: translateY(-4px) scale(1.1);
-
     color: white;
     background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
-
     box-shadow: 0 6px 15px rgba(168, 85, 247, 0.3);
 }
+
 
 /* derecha */
 .footer-right p {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,116 +9,136 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <div class="container-full">
-        <div class="presentacion">
+        <div class="presentacion" id="inicio">
             <div class="contenedor-superior">
                 <div class="pre-1">
                     <img src="gato.png" alt="Iván Matus A.">
                 </div>
                 <div class="pre-2">
+                    <button class="translate-btn" id="translateBtn"><i class="fa-solid fa-language"></i>
+                        English</button>
                     <h2 class="animated-title">
                         <span>I</span><span>v</span><span>á</span><span>n</span><span>&nbsp;</span><span>M</span><span>a</span><span>t</span><span>u</span><span>s</span><span>&nbsp;</span><span>A</span><span>n</span><span>g</span><span>u</span><span>l</span><span>o</span>
                     </h2>
                     <div class="tarjeta-presentacion">
                         <div class="titulos-presentacion">
-                            <div class="inge">Ingeniero en Administración y Comercio</div>
-                            <div class="tecni">Técnico Superior Analista Programador</div>
-                            <div class="estu">Estudiante Ingeniería en Informática</div>
+                            <div class="inge" data-key="title_1">Ingeniero en Administración y Comercio</div>
+                            <div class="tecni" data-key="title_2">Técnico Superior Analista Programador</div>
+                            <div class="estu" data-key="title_3">Estudiante Ingeniería en Informática</div>
                         </div>
                         <div class="contactos">
-                            <div class="email"><i class="fa-regular fa-envelope">&nbsp;</i><span
-                                    class="correo">ivanmatus204@gmail.com</span></div>
-                            <div class="telefono"><i class="fa-regular fa-address-book"></i>&nbsp;<span class="tele">+56
-                                    9 9945 5574</span></div>
-                            <div class="ciudades"><i class="fa-solid fa-location-dot">&nbsp;</i><span
-                                    class="ciudad">Puyehue, Entre Lagos</span></div>
+                            <div class="contacto-hover email">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span class="correo">ivanmatus204@gmail.com</span>
+                            </div>
+                            <div class="contacto-hover telefono">
+                                <i class="fa-regular fa-address-book"></i>
+                                <span class="tele">+56 9 9945 5574</span>
+                            </div>
+                            <div class="contacto-hover ciudades">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span class="ciudad">Puyehue, Entre Lagos</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="botones">
-                <a class="descarga" href=""><span class="fa-solid fa-download">&nbsp;</span>Descargar CV</a>
+                <a class="descarga" href=""><span class="fa-solid fa-download">&nbsp;</span
+                        data-key='download_cv'>Descargar CV</a>
                 <div class="footer-center">
-                    <a class="fa-brands fa-linkedin" href="https://www.linkedin.com/in/iv%C3%A1n-matus-angulo-814bb1316/"></a>
-                    <a href="https://www.instagram.com/_vanzzi/" class=" fa-brands fa-instagram"></a>
-                    <a href="https://github.com/MaThUZiB" class="fa-brands fa-github"></a>
+                    <a class="fa-brands fa-linkedin"
+                        href="https://www.linkedin.com/in/iv%C3%A1n-matus-angulo-814bb1316/" target="_blank"
+                        rel="noopener noreferrer"></a>
+                    <a href="https://www.instagram.com/_vanzzi/" class="fa-brands fa-instagram" target="_blank"
+                        rel="noopener noreferrer"></a>
+                    <a href="https://github.com/MaThUZiB" class="fa-brands fa-github" target="_blank"
+                        rel="noopener noreferrer"></a>
                 </div>
             </div>
             <div class="cuadros">
-                <div class="formacion-caja box">
+                <a class="formacion-caja box" href="#educacion">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <p class="number">7</p>
-                    <p>Años de Formación</p>
-                </div>
-                <div class="years-caja box">
+                    <p data-key="stat1">Años de Formación</p>
+                </a>
+                <a class="years-caja box" href="#experiencia">
                     <i class="fa-solid fa-book"></i>
                     <p class="number">4</p>
-                    <p>Años de Experiencia</p>
-                </div>
-                <div class="proyectos-caja box">
+                    <p data-key="stat2">Años de Experiencia</p>
+                </a>
+                <a class="proyectos-caja box" href="#proyectos">
                     <i class="fa-solid fa-briefcase"></i>
                     <p class="number">+10</p>
-                    <p>Proyectos Realizados</p>
-                </div>
-                <div class="tecnologias-caja box">
+                    <p data-key="stat3">Proyectos Realizados</p>
+                </a>
+                <a class="tecnologias-caja box" href="#tecnologias">
                     <i class="fa-solid fa-code"></i>
                     <p class="number">+20</p>
-                    <p>Tecnologías </p>
-                </div>
+                    <p data-key="stat4">Tecnologías </p>
+                </a>
             </div>
         </div>
     </div>
     <div class="wrapper">
         <div class="container-2">
-            <div class="acerca">
+            <div class="acerca" id="acerca">
                 <div class="encabe">
                     <i class="fa-solid fa-user"></i>
-                    <h3>Acerca de Mí</h3>
+                    <h3 data-key="about_title">Acerca de Mí</h3>
                 </div>
                 <div class="parrafos">
-                    <p>Actualmente soy estudiante de <span>Ingeniería en Informática</span> en jornada vespertina, con
+                    <p data-key="about_1">Actualmente soy estudiante de <span>Ingeniería en Informática</span> en
+                        jornada vespertina, con
                         formación
                         previa en <span>Análisis y Programación</span>, además de, una <span>Ingeniería en
                             Administración
                             y Comercio</span>.</p>
-                    <p>Cuento con experiencia en el área administrativa, donde desarrollé habilidades en gestión de
+                    <p data-key="about_2">Cuento con experiencia en el área administrativa, donde desarrollé habilidades
+                        en gestión de
                         equipos, planificación estratégica y mejora continua de procesos. Esta base me ha permitido
                         integrar una visión de negocio al desarrollo tecnológico.</p>
-                    <p>En el ámbito TI, tengo experiencia como <span>desarrollador web</span> trabajando con Laravel en
+                    <p data-key="about_3">En el ámbito TI, tengo experiencia como <span>desarrollador web</span>
+                        trabajando con Laravel en
                         entornos
                         colaborativos bajo metodologías ágiles, participando en el <span>desarrollo de
                             aplicaciones</span> y
                         trabajando en equipos a gran escala.</p>
-                    <p>Además, he desarrollado <span>diversos proyectos personales</span> donde he utilizado distintos
+                    <p data-key="about_4">Además, he desarrollado <span>diversos proyectos personales</span> donde he
+                        utilizado distintos
                         lenguajes,
                         frameworks y herramientas modernas, incluyendo integración de IA, desarrollo web y conceptos de
                         arquitectura de sistemas.</p>
-                    <p>Actualmente, me interesa orientar mi desarrollo profesional hacia el área de
+                    <p data-key="about_5">Actualmente, me interesa orientar mi desarrollo profesional hacia el área de
                         <span>infraestructura, redes y ciberseguridad</span>, profundizando en la gestión de sistemas,
                         arquitecturas
                         escalables y servicios en la nube, con el objetivo de construir soluciones robustas y
                         eficientes.
                     </p>
-                    <p>Me caracterizo por ser una persona proactiva, con enfoque analítico y orientado a la mejora
+                    <p data-key="about_6">Me caracterizo por ser una persona proactiva, con enfoque analítico y
+                        orientado a la mejora
                         continua, capaz de proponer soluciones, implementarlas y evaluar sus resultados.</p>
                 </div>
             </div>
-            <div class="tecnologias">
+            <div class="tecnologias" id="tecnologias">
                 <!-- Encabezado -->
                 <div class="tec-header">
                     <i class="fa-solid fa-code"></i>
-                    <h3>Stack Tecnológico</h3>
+                    <h3 data-key="tech_title">Stack Tecnológico</h3>
                 </div>
                 <!-- Columnas con categorías -->
                 <div class="tec-columns">
                     <!-- Columna 1 -->
                     <div class="tec-col">
                         <div class="categoria lenguajes">
-                            <h4><i class="fa-solid fa-laptop-code"></i> Lenguajes</h4>
+                            <h4><i class="fa-solid fa-laptop-code"></i> <span data-key="languages">Lenguajes</span></h4>
                             <ul class="badges">
                                 <li>Python</li>
                                 <li>PHP</li>
@@ -128,7 +148,8 @@
                             </ul>
                         </div>
                         <div class="categoria frameworks">
-                            <h4><i class="fa-solid fa-bolt"></i> Frameworks y Librerías</h4>
+                            <h4><i class="fa-solid fa-bolt"></i> <span data-key="frameworks">Frameworks y
+                                    Librerías</span></h4>
                             <ul class="badges">
                                 <li>Django</li>
                                 <li>React</li>
@@ -140,7 +161,8 @@
                             </ul>
                         </div>
                         <div class="categoria herramientas">
-                            <h4><i class="fa-solid fa-toolbox"></i> Herramientas y Otros</h4>
+                            <h4><i class="fa-solid fa-toolbox"></i> <span data-key="tools">Herramientas y Otros</span>
+                            </h4>
                             <ul class="badges">
                                 <li>Git</li>
                                 <li>Kali Linux</li>
@@ -153,7 +175,8 @@
                     </div>
                     <div class="tec-col">
                         <div class="categoria cloud">
-                            <h4><i class="fa-solid fa-cloud"></i> Cloud & Infraestructura</h4>
+                            <h4><i class="fa-solid fa-cloud"></i> <span data-key="cloud">Cloud & Infraestructura</span>
+                            </h4>
                             <ul class="badges">
                                 <li>AWS (EC2, RDS, S3, VPC)</li>
                                 <li>Windows Server</li>
@@ -162,7 +185,8 @@
                             </ul>
                         </div>
                         <div class="categoria bases">
-                            <h4><i class="fa-solid fa-database"></i> Bases de Datos</h4>
+                            <h4><i class="fa-solid fa-database"></i> <span data-key="databases">Bases de Datos</span>
+                            </h4>
                             <ul class="badges">
                                 <li>MySQL</li>
                                 <li>Oracle Database</li>
@@ -173,21 +197,22 @@
                     </div>
                 </div>
             </div>
-            <div class="proyectos">
+            <div class="proyectos" id="proyectos">
                 <div class="tec-header">
                     <i class="fa-solid fa-rocket"></i>
-                    <h3>Proyectos</h3>
+                    <h3 data-key="projects">Proyectos</h3>
                 </div>
                 <div class="proyectos-grid">
                     <div class="proyecto-card">
                         <div class="proyecto-header">
-                            <h4 class="titulo-proyecto">Despliegue de aplicación en la nube (AWS)</h4>
+                            <h4 class="titulo-proyecto" data-key="project1_title">Despliegue de aplicación en la nube
+                                (AWS)</h4>
                             <a href="#" class="link-proyecto">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                         <div class="contenido-proyecto">
-                            <p>
+                            <p data-key="project1_desc">
                                 Despliegue de aplicaciones en AWS utilizando <strong>EC2, S3 y VPC</strong>,
                                 configurando red, seguridad y acceso público. Este portafolio fue implementado
                                 en una instancia EC2 con configuración completa de servidor web.
@@ -197,14 +222,15 @@
                     </div>
                     <div class="proyecto-card">
                         <div class="proyecto-header">
-                            <h4 class="titulo-proyecto">Sistema de Auditorías Buenas Prácticas Apícolas - Bee Fractal
+                            <h4 class="titulo-proyecto" data-key="project2_title">Sistema de Auditorías Buenas Prácticas
+                                Apícolas - Bee Fractal</h4>
                             </h4>
                             <a href="#" class="link-proyecto">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                         <div class="contenido-proyecto">
-                            <p>
+                            <p data-key="project2_desc">
                                 Desarrollo de sistema de auditorías para producción apícola utilizando
                                 <strong>Laravel</strong>, permitiendo evaluar apiarios y colmenas bajo estándares
                                 de buenas prácticas. Incluye gestión de datos, reportes y trabajo colaborativo.
@@ -214,13 +240,14 @@
                     </div>
                     <div class="proyecto-card">
                         <div class="proyecto-header">
-                            <h4 class="titulo-proyecto">Sistema de reservas de horas a peluquería - Salón Vualá</h4>
+                            <h4 class="titulo-proyecto" data-key="project3_title">Sistema de reservas de horas a
+                                peluquería - Salón Vualá</h4>
                             <a href="#" class="link-proyecto">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                         <div class="contenido-proyecto">
-                            <p>
+                            <p data-key="project3_desc">
                                 Desarrollo de aplicación web para gestión de reservas, inventario y finanzas,
                                 optimizando la administración interna del negocio mediante automatización
                                 de procesos y control centralizado de operaciones.
@@ -230,90 +257,104 @@
                     </div>
                 </div>
             </div>
-            <div class="certiffi">
+            <div class="certiffi" id="certificaciones">
                 <div class="tec-header">
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>Certificaciones</h3>
+                    <h3 data-key="cert_title">Certificaciones</h3>
                 </div>
                 <div class="certificaciones">
+                    <a href="https://1drv.ms/b/c/210d05de94081ebc/IQAnI-cUDmS1QZ3u83oNYvUNAXF2hCIe0gRrrecRStkks4I?e=HjtESJ"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="cert-card">
+                            <div class="info">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <div class="text">
+                                    <span class="title" data-key="cert1_title">Técnico Superior en Administración y
+                                        Comercio</span>
+                                    <span class="subtitle">Instituto Profesional INACAP</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-circle-check check"></i>
+                        </div>
+                    </a>
                     <div class="cert-card">
                         <div class="info">
                             <i class="fa-solid fa-graduation-cap"></i>
                             <div class="text">
-                                <span class="title">Técnico Superior en Comercio</span>
+                                <span class="title" data-key="cert2_title">Técnico Superior Analista Programador</span>
                                 <span class="subtitle">Instituto Profesional INACAP</span>
                             </div>
                         </div>
                         <i class="fa-solid fa-circle-check check"></i>
                     </div>
-                    <div class="cert-card">
-                        <div class="info">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <div class="text">
-                                <span class="title">Técnico Superior Analista Programador</span>
-                                <span class="subtitle">Instituto Profesional INACAP</span>
+                    <a href="https://1drv.ms/b/c/210d05de94081ebc/IQBOWxq736nkQY6sNHi5OsYQAXOuxrCswSbBjYo1ArvZHEQ?e=cNQQgE"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="cert-card">
+                            <div class="info">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <div class="text">
+                                    <span class="title" data-key="cert3_title">Ingeniería Administración y
+                                        Comercio</span>
+                                    <span class="subtitle">Universidad Tecnológica de INACAP</span>
+                                </div>
                             </div>
+                            <i class="fa-solid fa-circle-check check"></i>
                         </div>
-                        <i class="fa-solid fa-circle-check check"></i>
-                    </div>
+                    </a>
                     <div class="cert-card">
                         <div class="info">
                             <i class="fa-solid fa-graduation-cap"></i>
                             <div class="text">
-                                <span class="title">Ingeniería Administración y Comercio</span>
-                                <span class="subtitle">Universidad Tecnológica de INACAP</span>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-circle-check check"></i>
-                    </div>
-                    <div class="cert-card">
-                        <div class="info">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <div class="text">
-                                <span class="title">Ingeniería Informática</span>
+                                <span class="title" data-key="cert4_title">Ingeniería en Informática</span>
                                 <span class="subtitle">Universidad Tecnológica de INACAP</span>
                             </div>
                         </div>
                         <i class="fa-solid fa-hourglass-half relo"></i>
                     </div>
-                    <div class="cert-card">
-                        <div class="info">
-                            <i class="fa-solid fa-cloud"></i>
-                            <div class="text">
-                                <span class="title">AWS Academy Graduate - Cloud Foundations</span>
-                                <span class="subtitle">Amazon Web Services Training</span>
+                    <a href="https://www.credly.com/badges/d5ff7671-7bbe-4497-8d2a-621c77a96585" target="_blank"
+                        rel="noopener noreferrer">
+                        <div class="cert-card">
+                            <div class="info">
+                                <i class="fa-solid fa-cloud"></i>
+                                <div class="text">
+                                    <span class="title" data-key="cert5_title">AWS Academy Graduate - Cloud
+                                        Foundations</span>
+                                    <span class="subtitle">Amazon Web Services Training</span>
+                                </div>
                             </div>
+                            <i class="fa-solid fa-circle-check check"></i>
                         </div>
-                        <i class="fa-solid fa-circle-check check"></i>
-                    </div>
+                    </a>
+                    <a href="https://www.andalueosorno.cl/colegio/" target="_blank" rel="noopener noreferrer">
                     <div class="cert-card">
                         <div class="info">
                             <i class="fa-solid fa-language"></i>
                             <div class="text">
-                                <span class="title">Inglés Nivel C1</span>
+                                <span class="title" data-key="cert6_title">Inglés Nivel C1</span>
                                 <span class="subtitle">Certificación Colegio Andalue</span>
                             </div>
                         </div>
                         <i class="fa-solid fa-circle-check check"></i>
                     </div>
+                    </a>
                 </div>
             </div>
             <div class="tabla">
                 <!-- EXPERIENCIA -->
                 <div class="columna-1">
-                    <div class="estudios">
+                    <div class="estudios" id="experiencia">
                         <div class="tec-header">
                             <i class="fa-solid fa-briefcase"></i>
-                            <h3>Experiencia Profesional</h3>
+                            <h3 data-key="experience_title">Experiencia Profesional</h3>
                         </div>
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
-                                    <h4>Desarrollador Full Stack Laravel</h4>
+                                    <h4 data-key="job1_title">Desarrollador Full Stack Laravel</h4>
                                     <span class="empresa">Bee Fractal</span>
-                                    <span class="fecha">2024 - Actualidad</span>
-                                    <p>
+                                    <span class="fecha">2024 - <span data-key="current_date">Actualidad</span></span>
+                                    <p data-key="job1_desc">
                                         Desarrollo web con Laravel en entornos colaborativos bajo metodologías ágiles.
                                         Participación en desarrollo de aplicaciones y trabajo en equipo a gran escala.
                                     </p>
@@ -322,10 +363,10 @@
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
-                                    <h4>Asesoría Administrativa</h4>
+                                    <h4 data-key="job2_title">Asesoría Administrativa</h4>
                                     <span class="empresa">El Salto SpA</span>
                                     <span class="fecha">2022 - 2024</span>
-                                    <p>
+                                    <p data-key="job2_desc">
                                         Gestión de equipos, planificación estratégica y mejora continua de procesos.
                                         Integración de visión de negocio con desarrollo tecnológico.
                                     </p>
@@ -334,10 +375,10 @@
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
-                                    <h4>Asistente Administrativo</h4>
+                                    <h4 data-key="job3_title">Asistente Administrativo</h4>
                                     <span class="empresa">Supermercado Pilmaiquén</span>
                                     <span class="fecha">2021 - 2022</span>
-                                    <p>
+                                    <p data-key="job3_desc">
                                         Apoyo en gestión administrativa, control de inventario y procesos internos del
                                         negocio.
                                     </p>
@@ -348,27 +389,27 @@
                 </div>
                 <!-- FORMACIÓN -->
                 <div class="columna-2">
-                    <div class="experiencia">
+                    <div class="experiencia" id="educacion">
                         <div class="tec-header">
                             <i class="fa-solid fa-graduation-cap"></i>
-                            <h3>Formación Académica</h3>
+                            <h3 data-key="education_title">Formación Académica</h3>
                         </div>
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
                                     <div class="card-header">
-                                        <h4>Ingeniería en Informática</h4>
-                                        <span class="estado">En curso</span>
+                                        <h4 data-key="degree1_title">Ingeniería en Informática</h4>
+                                        <span class="estado" data-key="degree1_status">En curso</span>
                                     </div>
                                     <span class="empresa">Universidad Tecnológica de INACAP</span>
-                                    <span class="fecha">2025 - Actualidad</span>
+                                    <span class="fecha">2025 - <span data-key="current_date">Actualidad</span></span>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
-                                    <h4>Técnico Superior Analista Programador</h4>
+                                    <h4 data-key="degree2_title">Técnico Superior Analista Programador</h4>
                                     <span class="empresa">Universidad Tecnológica de INACAP</span>
                                     <span class="fecha">2023 - 2025</span>
                                 </div>
@@ -376,7 +417,7 @@
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
-                                    <h4>Ingeniería en Administración y Comercio</h4>
+                                    <h4 data-key="degree3_title">Ingeniería en Administración y Comercio</h4>
                                     <span class="empresa">Universidad Tecnológica de INACAP</span>
                                     <span class="fecha">2020 - 2022</span>
                                 </div>
@@ -384,7 +425,7 @@
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-card">
-                                    <h4>Técnico Superior Administración y Comercio</h4>
+                                    <h4 data-key="degree4_title">Técnico Superior Administración y Comercio</h4>
                                     <span class="empresa">Universidad Tecnológica de INACAP</span>
                                     <span class="fecha">2019 - 2020</span>
                                 </div>
@@ -394,28 +435,34 @@
                 </div>
             </div>
         </div>
-        <footer class="footer">
+        <footer class="footer" id="contacto">
             <div class="footer-content">
                 <!-- izquierda -->
                 <div class="footer-left">
                     <h4>Iván Matus Angulo</h4>
-                    <p>Ingeniería en Informática · Ingeniería en Administración y Comercio</p>
+                    <p data-key="footer_desc">Ingeniería en Informática · Ingeniería en Administración y Comercio</p>
                 </div>
                 <!-- centro -->
                 <div class="footer-center">
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com/MaThUZiB" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/iv%C3%A1n-matus-angulo-814bb1316/" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/_vanzzi/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-instagram"></i></a>
                     <a href="mailto:ivanmatus204@gmail.com"><i class="fa-solid fa-envelope"></i></a>
                 </div>
                 <!-- derecha -->
                 <div class="footer-right">
-                    <p>© 2026 · Todos los derechos reservados</p>
+                    <p data-key="footer">© 2026 · Todos los derechos reservados</p>
                 </div>
             </div>
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="traduccion.js"></script>
     <script src="scripts.js"></script>
 </body>
 
