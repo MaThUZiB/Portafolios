@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla CV</title>
+</head>
+
+<body>
+    <!-- plantilla.html -->
+    <div class="cv-container">
+
+        <h1>{{name}}</h1>
+        <p>{{titles}}</p>
+
+        <hr>
+
+        <h2>Contacto</h2>
+        <ul>
+            {{contact}}
+        </ul>
+
+        <h2>Acerca de mí</h2>
+        {{about}}
+
+        <h2>Educación</h2>
+        {{education}}
+
+        <h2>Experiencia</h2>
+        {{experience}}
+
+        <h2>Proyectos</h2>
+        {{projects}}
+
+        <h2>Certificaciones</h2>
+        <ul>
+            {{certifications}}
+        </ul>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="scripts/generatePdf.js"></script>
+</body>
+
+</html>

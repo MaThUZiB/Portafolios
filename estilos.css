@@ -81,14 +81,11 @@ html {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    transition: background-position 0.5s ease, transform 0.3s ease;
     background-size: 200% 200%;
-    will-change: transform, opacity;
 }
 
 .animated-title span:hover {
     background-position: right center;
-    transform: scale(1.2) translateY(-3px) rotate(5deg);
 }
 
 .pre-1 {
@@ -121,6 +118,33 @@ html {
     margin-left: 70px;
     font-weight: 600;
     color: #dfc1fc;
+}
+.titulos-presentacion div {
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* línea animada */
+.titulos-presentacion div::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #A855F7, #C084FC);
+    transition: width 0.3s ease;
+}
+
+/* hover */
+.titulos-presentacion div:hover {
+    transform: translateX(5px);
+    color: #fff;
+}
+
+.titulos-presentacion div:hover::after {
+    width: 40%;
 }
 
 .inge {
