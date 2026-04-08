@@ -18,7 +18,7 @@ export async function generateCvPdf() {
             `GitHub: github.com/MaThUZiB`
         ].map(c => `<li>${c}</li>`).join(""),
 
-        about: ['about_1','about_2','about_3','about_4','about_5','about_6']
+        about: ['about_1', 'about_2', 'about_3', 'about_4', 'about_5', 'about_6']
             .map(key => document.querySelector(`[data-key="${key}"]`)?.textContent)
             .filter(Boolean)
             .map(p => `<p>${p}</p>`)
@@ -29,7 +29,21 @@ export async function generateCvPdf() {
                 const title = card.querySelector("h4")?.textContent;
                 const inst = card.querySelector(".empresa")?.textContent;
                 const date = card.querySelector(".fecha")?.textContent;
-                return `<p>${date} - ${title} ${inst ? "| " + inst : ""}</p>`;
+
+                return `
+        <div class="card">
+            <strong>${title}</strong>
+            <p>${inst}</p>
+            <p>${date}</p>
+        </div>
+        `;
+            }).join(""),
+
+        certifications: [...document.querySelectorAll(".cert-card")]
+            .map(card => {
+                const title = card.querySelector('.title')?.textContent;
+                const issuer = card.querySelector('.subtitle')?.textContent;
+                return title ? `<li><strong>${title}</strong><br>${issuer}</li>` : "";
             }).join(""),
 
         experience: [...document.querySelectorAll("#experiencia .timeline-card")]
@@ -38,21 +52,30 @@ export async function generateCvPdf() {
                 const company = card.querySelector(".empresa")?.textContent;
                 const date = card.querySelector(".fecha")?.textContent;
                 const desc = card.querySelector("p")?.textContent;
-                return `<p><strong>${title}</strong> - ${company} (${date})<br>${desc}</p>`;
+
+                return `
+        <div class="card">
+            <strong>${title} - ${company}</strong>
+            <p>${date}</p>
+            <p>${desc}</p>
+        </div>
+        `;
             }).join(""),
 
         projects: [...document.querySelectorAll(".proyecto-card")]
             .map(card => {
                 const title = card.querySelector('[data-key^="project"]')?.textContent;
                 const desc = card.querySelector(".contenido-proyecto p")?.textContent;
-                return title ? `<p><strong>${title}</strong><br>${desc || ""}</p>` : "";
+
+                return title ? `
+        <div class="card">
+            <strong>${title}</strong>
+            <p>${desc || ""}</p>
+        </div>
+        ` : "";
             }).join(""),
 
-        certifications: ['cert1_title','cert2_title','cert3_title','cert4_title','cert5_title','cert6_title']
-            .map(key => document.querySelector(`[data-key="${key}"]`)?.textContent)
-            .filter(Boolean)
-            .map(c => `<li>${c}</li>`)
-            .join("")
+        profileImage: document.querySelector(".imagen-perfil")?.src || ""
     };
 
     // ============================
@@ -65,7 +88,7 @@ export async function generateCvPdf() {
     // 3. Reemplazar variables
     // ============================
     Object.keys(data).forEach(key => {
-        template = template.replace(`{{${key}}}`, data[key] || "");
+        template = template.replaceAll(`{{${key}}}`, data[key] || "");
     });
 
     // ============================
@@ -73,20 +96,34 @@ export async function generateCvPdf() {
     // ============================
     const container = document.createElement("div");
     container.innerHTML = template;
+    container.style.margin = '0';
+    container.style.padding = '0';
+    container.style.width = '100%';
+    container.style.height = 'auto';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
     document.body.appendChild(container);
 
     // ============================
     // 5. Generar PDF
     // ============================
     const opt = {
-        margin: 10,
+        margin: 0,
         filename: `CV_Ivan_Matus.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4' }
+        html2canvas: {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#0f172a'
+        },
+        jsPDF: { unit: 'mm', format: 'a4' },
+        pagebreak: { mode: ['css', 'legacy'] } // 👈 cambia esto
     };
 
-    await html2pdf().set(opt).from(container).save();
+    await html2pdf()
+        .set(opt)
+        .from(container)
+        .save();
 
     // limpiar
     document.body.removeChild(container);

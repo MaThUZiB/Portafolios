@@ -1,0 +1,184 @@
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+.cv {
+    width: 100%;
+    margin: 0;
+    background: rgba(17, 24, 39, 0.95);
+    padding: 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.3);
+    padding-bottom: 10px;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #a855f7;
+    object-fit: cover;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #A855F7;
+    margin: 10px 0 5px 0;
+}
+
+.titles {
+    font-size: 12px;
+    color: #c084fc;
+}
+
+.contact-section {
+    background: linear-gradient(180deg, #1e1b4b, #0f172a);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    width: 250px;
+}
+
+.contact-section h3 {
+    font-size: 12px;
+    color: #c084fc;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.contact-section ul {
+    padding-left: 15px;
+}
+
+.contact-section li {
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+.section {
+    margin-bottom: 15px;
+}
+
+.section h2 {
+    font-size: 12px;
+    color: #a78bfa;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section li {
+    background: rgba(168, 85, 247, 0.1);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    border-left: 3px solid #a855f7;
+    font-size: 11px;
+}
+
+/* =========================
+   ABOUT BOX
+========================= */
+.about {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.about p {
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================
+   COLUMNAS
+========================= */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+    background: rgba(30, 27, 75, 0.5);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 8px;
+
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.card strong {
+    color: #c084fc;
+    font-size: 13px;
+}
+
+.card p {
+    font-size: 11px;
+    color: #d1d5db;
+}
+
+/* =========================
+   PAGE BREAK
+========================= */
+.page-break {
+    page-break-before: always;
+    break-before: page;
+}
+
+/* =========================
+   PRINT FIX
+========================= */
+@media print {
+    body {
+        background: #0f172a;
+    }
+}
+
+@page {
+  margin: 0;
+}

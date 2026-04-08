@@ -1,46 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantilla CV</title>
+    <title>CV</title>
+    <link rel="stylesheet" href="CSS/plantilla.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"rel="stylesheet">
 </head>
 
 <body>
-    <!-- plantilla.html -->
-    <div class="cv-container">
 
-        <h1>{{name}}</h1>
-        <p>{{titles}}</p>
+    <div class="cv">
 
-        <hr>
+        <header class="header">
+            <div class="profile">
+                <img src="{{profileImage}}" alt="Perfil">
+                <h1>{{name}}</h1>
+                <p class="titles">{{titles}}</p>
+            </div>
+            <div class="contact-section">
+                <h3>Contacto</h3>
+                <ul>
+                    {{contact}}
+                </ul>
+            </div>
+        </header>
 
-        <h2>Contacto</h2>
-        <ul>
-            {{contact}}
-        </ul>
+        <section class="section">
+            <h2>Acerca de mí</h2>
+            <div class="about">
+                {{about}}
+            </div>
+        </section>
 
-        <h2>Acerca de mí</h2>
-        {{about}}
+        <section class="section two-columns">
+            <div>
+                <h2>Educación</h2>
+                {{education}}
+            </div>
+            <div>
+                <h2>Experiencia</h2>
+                {{experience}}
+            </div>
+        </section>
 
-        <h2>Educación</h2>
-        {{education}}
+        <!-- SALTO DE PÁGINA -->
+        <section class="section page-break">
+            <h2>Proyectos</h2>
+            {{projects}}
+        </section>
 
-        <h2>Experiencia</h2>
-        {{experience}}
-
-        <h2>Proyectos</h2>
-        {{projects}}
-
-        <h2>Certificaciones</h2>
-        <ul>
-            {{certifications}}
-        </ul>
+        <section class="section">
+            <h2>Certificaciones</h2>
+            <ul>
+                {{certifications}}
+            </ul>
+        </section>
 
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="scripts/generatePdf.js"></script>
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="scripts/generatePdf.js"></script>
 
 </html>
