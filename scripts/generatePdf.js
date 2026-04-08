@@ -43,7 +43,15 @@ export async function generateCvPdf() {
             .map(card => {
                 const title = card.querySelector('.title')?.textContent;
                 const issuer = card.querySelector('.subtitle')?.textContent;
-                return title ? `<li><strong>${title}</strong><br>${issuer}</li>` : "";
+                // Estructura mejorada con clases para el CSS
+                return title ? `
+            <li>
+                <div class="cert-content">
+                    <i class="fas fa-certificate cv-icon"></i>
+                    <strong>${title}</strong>
+                </div>
+                <span class="cert-meta">${issuer}</span>
+            </li>` : "";
             }).join(""),
 
         experience: [...document.querySelectorAll("#experiencia .timeline-card")]

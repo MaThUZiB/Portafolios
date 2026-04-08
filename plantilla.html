@@ -3,14 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Digital Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/plantilla.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="cv">
+    <div class="cv" id="cv-content">
 
         <header class="header">
             <div class="profile">
@@ -19,7 +21,7 @@
                 <p class="titles">{{titles}}</p>
             </div>
             <div class="contact-section">
-                <h3>Contacto</h3>
+                <h3><i class="fas fa-address-card cv-icon"></i> Contacto</h3>
                 <ul>
                     {{contact}}
                 </ul>
@@ -27,7 +29,7 @@
         </header>
 
         <section class="section">
-            <h2>Acerca de mí</h2>
+            <h2><i class="fas fa-user cv-icon"></i> Acerca de mí</h2>
             <div class="about">
                 {{about}}
             </div>
@@ -35,32 +37,30 @@
 
         <section class="section two-columns">
             <div>
-                <h2>Educación</h2>
+                <h2><i class="fas fa-graduation-cap cv-icon"></i> Educación</h2>
                 {{education}}
             </div>
             <div>
-                <h2>Experiencia</h2>
+                <h2><i class="fas fa-briefcase cv-icon"></i> Experiencia</h2>
                 {{experience}}
             </div>
         </section>
 
-        <!-- SALTO DE PÁGINA -->
         <section class="section page-break">
-            <h2>Proyectos</h2>
+            <h2><i class="fas fa-laptop-code cv-icon"></i> Proyectos</h2>
             {{projects}}
         </section>
 
         <section class="section">
-            <h2>Certificaciones</h2>
-            <ul>
+            <h2><i class="fas fa-award cv-icon"></i> Certificaciones</h2>
+            <ul class="certifications-grid">
                 {{certifications}}
             </ul>
         </section>
 
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="scripts/generatePdf.js"></script>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script src="scripts/generatePdf.js"></script>
-
 </html>
