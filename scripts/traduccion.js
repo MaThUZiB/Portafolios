@@ -64,16 +64,28 @@ export const translations = {
 
     stat1: "Years of Training",
     stat2: "Years of Experience",
-    stat3: "Projects Completed", 
+    stat3: "Projects Completed",
     stat4: "Technologies",
 
     cert1_title: "Business Administration & Commerce Technician",
     cert2_title: "Software Development Technician",
-    cert3_title: "Business Administration & Commerce Engineering", 
+    cert3_title: "Business Administration & Commerce Engineering",
     cert4_title: "Computer Engineering",
     cert5_title: "AWS Academy Graduate - Cloud Foundations",
-    cert6_title: "English Level C1",
-
+    cert6_title: "English Level C1 proficiency",
+    cert7_title: "Application Development",
+    cert8_title: "Full Stack Development Certification",
+    cert9_title: "Secure IT Infrastructure",
+    cert1_subtitle: "INACAP Professional Institute",
+    cert2_subtitle: "INACAP Professional Institute",
+    cert3_subtitle: "Technological University of INACAP",
+    cert4_subtitle: "Technological University of INACAP",
+    cert5_subtitle: "Amazon Web Services (AWS) Training",
+    cert6_subtitle: "Andalue School Certification",
+    cert7_subtitle: "Technological University of INACAP Certification",
+    cert8_subtitle: "Technological University of INACAP Certification",
+    cert9_subtitle: "Technological University of INACAP Certification",
+    
     footer_desc: "Computer Engineering · Business Administration & Commerce Engineering",
 
     footer: "© 2026 · All rights reserved",

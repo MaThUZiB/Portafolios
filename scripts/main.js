@@ -1,6 +1,5 @@
 import { initAnimations } from "./animations.js";
 import { translations } from "./traduccion.js";
-import { generateCvPdf } from "./generatePdf.js";
 
 // -------------------------------
 // Inicializar animaciones al cargar
