@@ -54,6 +54,8 @@ html {
 }
 
 .animated-title {
+    font-size: clamp(3rem, 5vw, 3.4rem);
+    line-height: 1.3;
     padding-top: 0;
 }
 
@@ -119,6 +121,7 @@ html {
     font-weight: 600;
     color: #dfc1fc;
 }
+
 .titulos-presentacion div {
     position: relative;
     transition: all 0.3s ease;
@@ -148,17 +151,17 @@ html {
 }
 
 .inge {
-    font-size: 1.6rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     font-weight: 700;
 }
 
 .tecni {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     opacity: 0.9;
 }
 
 .estu {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     opacity: 0.8;
 }
 
@@ -336,8 +339,8 @@ html {
     position: absolute;
     inset: 0;
     background: radial-gradient(circle at top left,
-        rgba(168, 85, 247, 0.25),
-        transparent 60%);
+            rgba(168, 85, 247, 0.25),
+            transparent 60%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -351,6 +354,7 @@ html {
     border-color: rgba(192, 132, 252, 0.6);
     box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
 }
+
 .box p {
     margin: 0;
 }
@@ -380,15 +384,13 @@ html {
 
 .acerca {
     font-family: 'Inter';
-    color: #cbd5f5; 
+    color: #cbd5f5;
     border-radius: 14px;
     padding: 25px;
 
-    background: linear-gradient(
-        135deg,
-        rgba(17, 24, 39, 0.85),
-        rgba(30, 27, 75, 0.6)
-    );
+    background: linear-gradient(135deg,
+            rgba(17, 24, 39, 0.85),
+            rgba(30, 27, 75, 0.6));
 
     border: 1px solid rgba(168, 85, 247, 0.25);
     backdrop-filter: blur(6px);
@@ -404,12 +406,12 @@ html {
 }
 
 .parrafos p {
-    color: #d1d5db; 
+    color: #d1d5db;
     line-height: 1.6;
 }
 
 .parrafos p strong {
-    color: #C084FC; 
+    color: #C084FC;
 }
 
 .encabe {
@@ -472,7 +474,8 @@ html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
-    align-items: stretch; /* Esto asegura que todas las celdas tengan igual altura */
+    align-items: stretch;
+    /* Esto asegura que todas las celdas tengan igual altura */
 }
 
 .tec-col {
@@ -488,12 +491,12 @@ html {
     padding: 1.5rem;
     border-radius: 16px;
     border: 1px solid rgba(124, 58, 237, 0.3);
-    
+
     /* Fondo oscuro con ligera transparencia y efecto de vidrio */
     background: rgba(17, 12, 35, 0.7);
     backdrop-filter: blur(8px) saturate(150%);
     -webkit-backdrop-filter: blur(8px) saturate(150%);
-    
+
     /* Sombra interior suave */
     box-shadow: inset 0 0 8px rgba(124, 58, 237, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
@@ -502,7 +505,7 @@ html {
 .categoria:hover {
     transform: translateY(-3px) scale(1.02);
     border-color: rgba(192, 132, 252, 0.5);
-    
+
     /* Hover sutil, solo más luminosa y ligera */
     background: rgba(29, 20, 60, 0.75);
     box-shadow: 0 6px 20px rgba(124, 58, 237, 0.15), inset 0 0 12px rgba(192, 132, 252, 0.05);
@@ -526,10 +529,14 @@ html {
 
 .badges li {
     font-family: 'Inter';
-    font-size: 0.9rem; /* un poco más grande */
-    padding: 0.5rem 0.8rem; /* más acolchado */
-    border-radius: 12px; /* más suave que 999px */
-    background: rgba(30, 27, 75, 0.4); /* fondo más visible */
+    font-size: 0.9rem;
+    /* un poco más grande */
+    padding: 0.5rem 0.8rem;
+    /* más acolchado */
+    border-radius: 12px;
+    /* más suave que 999px */
+    background: rgba(30, 27, 75, 0.4);
+    /* fondo más visible */
     color: #e0d7fa;
     border: 1px solid rgba(168, 85, 247, 0.25);
     transition: all 0.3s ease;
@@ -543,9 +550,11 @@ html {
     box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
     transform: translateY(-3px) scale(1.05);
 }
+
 .categoria h4 i {
     margin-right: 0.5rem;
-    color: #A855F7; /* gradiente opcional si quieres */
+    color: #A855F7;
+    /* gradiente opcional si quieres */
     background-clip: text;
     background: linear-gradient(135deg, #A855F7, #C084FC, #3B82F6);
     -webkit-background-clip: text;
@@ -579,7 +588,8 @@ html {
     flex-direction: column;
 
     gap: 0.8rem;
-    height: 100%; /* clave */
+    height: 100%;
+    /* clave */
 
     transition: all 0.3s ease;
 }
@@ -607,9 +617,11 @@ html {
         grid-template-columns: 1fr;
     }
 }
+
 .certificaciones a {
     text-decoration: none;
 }
+
 /* título proyecto */
 .titulo-proyecto {
     font-family: 'Inter';
@@ -662,8 +674,10 @@ html {
     justify-content: space-between;
     padding: 1rem 1.5rem;
     border-radius: 12px;
-    border: 2px solid #FFA500; /* borde naranja del icono */
-    background: linear-gradient(135deg, #3a3a3a, #4b3f2f); /* fondo más oscuro, degradado cálido */
+    border: 2px solid #FFA500;
+    /* borde naranja del icono */
+    background: linear-gradient(135deg, #3a3a3a, #4b3f2f);
+    /* fondo más oscuro, degradado cálido */
     color: white;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -681,7 +695,8 @@ html {
 
 .cert-card i {
     font-size: 1.8rem;
-    color: #FFA500; /* mismo color que el borde */
+    color: #FFA500;
+    /* mismo color que el borde */
     flex-shrink: 0;
 }
 
@@ -702,7 +717,8 @@ html {
 
 .cert-card .check {
     font-size: 1.2rem;
-    color: #00c853; /* verde */
+    color: #00c853;
+    /* verde */
 }
 
 .relo {
@@ -864,10 +880,12 @@ html {
         transform: scale(1);
         opacity: 0.8;
     }
+
     70% {
         transform: scale(2.5);
         opacity: 0;
     }
+
     100% {
         opacity: 0;
     }
@@ -888,8 +906,10 @@ html {
     backdrop-filter: blur(8px);
     border: 1px solid rgba(168, 85, 247, 0.25);
     transition: all 0.3s ease;
-    flex: 1; /* 👈 IMPORTANTE */
-    min-height: 110px; /* 👈 uniformidad mínima */
+    flex: 1;
+    /* 👈 IMPORTANTE */
+    min-height: 110px;
+    /* 👈 uniformidad mínima */
 }
 
 /* hover */
@@ -932,6 +952,7 @@ html {
     .timeline {
         padding-left: 1.5rem;
     }
+
     .timeline-card {
         margin-left: 1.5rem;
     }
@@ -1037,3 +1058,110 @@ html {
     }
 }
 
+@media (max-width: 768px) {
+
+    .translate-btn {
+        order: -1; 
+        position: static; /* 🔥 clave */
+        align-self: center;
+        margin-bottom: 1rem;
+    }
+
+    .pre-2 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .titulos-presentacion div {
+        margin-left: 0;
+    }
+
+    .contenedor-superior {
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pre-1 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* imagen */
+    .pre-1 img {
+        width: 12rem;
+    }
+
+    /* títulos */
+    .titulos-presentacion div {
+        margin-left: 0;
+    }
+
+    /* contactos */
+    .contactos {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    /* botones */
+    .botones {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    /* estadísticas */
+    .cuadros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* tecnologías */
+    .tec-columns {
+        grid-template-columns: 1fr;
+    }
+
+    /* certificaciones */
+    .certificaciones {
+        grid-template-columns: 1fr;
+    }
+
+    /* tabla experiencia */
+    .tabla {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .pre-2 {
+        font-size: 1.6rem;
+    }
+
+    .pre-1 img {
+        width: 10rem;
+    }
+
+    .cuadros {
+        grid-template-columns: 1fr;
+    }
+
+    .descarga {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
