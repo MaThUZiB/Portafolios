@@ -80,13 +80,14 @@ export function animateSections() {
                     start: "top 80%",
                 },
                 opacity: 0,
-                y: 60,
-                duration: 1,
-                ease: "power3.out"
+                y: 80,
+                scale: 0.97,
+                duration: 1.2,
+                ease: "power4.out"
             });
         });
 
-    gsap.utils.toArray(".proyecto-card, .categoria, .certificaciones")
+    gsap.utils.toArray(".proyecto-card, .categoria, .certificaciones, .timeline-item")
         .forEach(card => {
             gsap.from(card, {
                 scrollTrigger: {
@@ -94,24 +95,43 @@ export function animateSections() {
                     start: "top 85%",
                 },
                 opacity: 0,
-                y: 30,
-                duration: 0.5,
-                ease: "power2.out"
+                y: 40,
+                scale: 0.95,
+                duration: 0.7,
+                ease: "power3.out"
             });
         });
+
+    gsap.utils.toArray(".box").forEach((box, i) => {
+        gsap.from(box, {
+            scrollTrigger: {
+                trigger: box,
+                start: "top 85%",
+            },
+            opacity: 0,
+            y: 30,
+            scale: 0.9,
+            duration: 0.6,
+            delay: i * 0.1,
+            ease: "back.out(1.7)"
+        });
+    });
+}
+
+export function setupCardGlow() {
+    document.querySelectorAll(".proyecto-card, .categoria, .cert-card, .timeline-card, .box").forEach(card => {
+        card.addEventListener("mousemove", e => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty("--glow-x", x + "%");
+            card.style.setProperty("--glow-y", y + "%");
+        });
+    });
 }
 
 // Animación hover de cajas
 export function setupBoxHover() {
-    document.querySelectorAll(".box").forEach(box => {
-        box.addEventListener("mouseenter", () => {
-            gsap.to(box, { scale: 1.05, duration: 0.3, ease: "power2.out" });
-        });
-        box.addEventListener("mouseleave", () => {
-            gsap.to(box, { scale: 1, duration: 0.3 });
-        });
-    });
-
     document.querySelectorAll(".titulos-presentacion div").forEach(el => {
         el.addEventListener("mouseenter", () => {
             gsap.to(el, { x: 10, scale: 1.05, duration: 0.2, ease: "power2.out" });
@@ -131,4 +151,5 @@ export function initAnimations() {
     animateCuadros();
     animateSections();
     setupBoxHover();
+    setupCardGlow();
 }

@@ -1,6 +1,14 @@
 import { initAnimations } from "./animations.js";
 import { translations } from "./traduccion.js";
 import { generateCvPdf } from "./cvGenerator.js";
+import {
+    initParticles,
+    initScrollProgress,
+    initMouseGlow,
+    initTypewriter,
+    initTilt,
+    restartTypewriter
+} from "./effects.js";
 
 // -------------------------------
 // Estado global traducción
@@ -12,6 +20,13 @@ let originalSpanishTexts = {};
 // INICIALIZACIÓN SEGURA
 // -------------------------------
 window.addEventListener("DOMContentLoaded", () => {
+
+    // Efectos visuales
+    initParticles();
+    initScrollProgress();
+    initMouseGlow();
+    initTypewriter();
+    initTilt();
 
     // Animaciones
     initAnimations();
@@ -45,6 +60,10 @@ function storeOriginalTexts() {
             originalSpanishTexts[key] = { alt: element.alt };
         } else {
             originalSpanishTexts[key] = { text: element.textContent };
+        }
+
+        if (key === 'title_1' || key === 'title_2' || key === 'title_3') {
+            element.setAttribute('data-original', element.textContent);
         }
     });
 
@@ -84,12 +103,20 @@ function translatePage(language) {
                         }
                     }
                 }
+
+                if (key === 'title_1' || key === 'title_2' || key === 'title_3') {
+                    el.setAttribute('data-original', el.textContent);
+                }
             });
 
             gsap.fromTo(elements,
                 { opacity: 0, y: 10 },
                 { opacity: 1, y: 0, duration: 0.2, stagger: 0.03 }
             );
+
+            if (language === 'es') {
+                setTimeout(restartTypewriter, 400);
+            }
         }
     });
 
