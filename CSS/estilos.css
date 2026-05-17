@@ -118,11 +118,8 @@ html {
 }
 
 .pre-1 {
-    padding: 1rem;
-}
-
-.pre-1 {
     position: relative;
+    line-height: 0;
 }
 
 .pre-1::before {
@@ -130,6 +127,7 @@ html {
     position: absolute;
     inset: -3px;
     border-radius: 50%;
+    z-index: 2;
     background: conic-gradient(
         from 0deg,
         #A855F7,
@@ -140,19 +138,19 @@ html {
         #A855F7
     );
     animation: spin-border 3s linear infinite;
-    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 3px));
-    mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 3px));
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #fff calc(100% - 3px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #fff calc(100% - 3px));
 }
 
 .pre-1::after {
     content: "";
     position: absolute;
-    inset: -8px;
+    inset: -10px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(168, 85, 247, 0.25), transparent 70%);
     filter: blur(15px);
     animation: pulse-glow 3s ease-in-out infinite;
-    z-index: -1;
+    z-index: 0;
 }
 
 @keyframes spin-border {
@@ -167,6 +165,8 @@ html {
 .pre-1 img {
     border-radius: 50%;
     width: 20rem;
+    aspect-ratio: 1;
+    object-fit: cover;
     display: block;
     position: relative;
     z-index: 1;
@@ -1180,8 +1180,8 @@ html {
 @media (max-width: 768px) {
 
     .translate-btn {
-        order: -1; 
-        position: static; /* 🔥 clave */
+        order: -1;
+        position: static;
         align-self: center;
         margin-bottom: 1rem;
     }
@@ -1207,49 +1207,42 @@ html {
     .pre-1 {
         display: flex;
         justify-content: center;
-        width: 100%;
     }
 
-    /* imagen */
     .pre-1 img {
         width: 12rem;
+        aspect-ratio: 1;
     }
 
-    /* títulos */
     .titulos-presentacion div {
         margin-left: 0;
     }
 
-    /* contactos */
     .contactos {
         flex-direction: column;
         gap: 1rem;
         align-items: center;
     }
 
-    /* botones */
     .botones {
         flex-direction: column;
         gap: 1rem;
         padding: 0;
     }
 
-    /* estadísticas */
     .cuadros {
+        margin: 2rem 1rem;
         grid-template-columns: 1fr 1fr;
     }
 
-    /* tecnologías */
     .tec-columns {
         grid-template-columns: 1fr;
     }
 
-    /* certificaciones */
     .certificaciones {
         grid-template-columns: 1fr;
     }
 
-    /* tabla experiencia */
     .tabla {
         grid-template-columns: 1fr;
     }
@@ -1266,12 +1259,17 @@ html {
     }
 
     .cuadros {
+        margin: 1.5rem 0.5rem;
         grid-template-columns: 1fr;
     }
 
     .descarga {
         width: 100%;
         text-align: center;
+    }
+
+    .botones {
+        padding: 0 0.5rem;
     }
 }
 
