@@ -5,9 +5,11 @@
 }
 
 body {
-    font-family: 'Poppins', 'Inter', sans-serif;
-    background: #f1f5f9;
-    color: #0f172a;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
 }
 
 /* ================= CV CONTAINER ================= */
@@ -20,8 +22,8 @@ body {
 
 /* ================= HEADER ================= */
 .header {
-    background: linear-gradient(135deg, #1e1b4b 0%, #3b0764 100%);
-    padding: 30px 32px 26px;
+    background: #1a2332;
+    padding: 28px 36px 24px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -37,49 +39,53 @@ body {
 .profile {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
 }
 
 .profile img {
-    width: 78px;
-    height: 95px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid rgba(196, 132, 252, 0.5);
+    border: 2px solid #4a5568;
     flex-shrink: 0;
 }
 
 .profile-info h1 {
-    font-size: 22px;
+    font-size: 24px;
     color: #ffffff;
     font-weight: 700;
-    letter-spacing: -0.3px;
+    letter-spacing: 0.5px;
     line-height: 1.2;
     margin: 0;
+    font-family: 'Georgia', serif;
 }
 
 .titles {
     font-size: 11px;
-    color: #c4b5fd;
+    color: #a0aec0;
     line-height: 1.5;
     margin-top: 4px;
+    font-family: 'Arial', sans-serif;
 }
 
 /* ================= CONTACT ================= */
 .contact-section {
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 16px 18px;
-    min-width: 230px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    padding: 14px 18px;
+    min-width: 220px;
 }
 
 .contact-section h3 {
-    color: #a78bfa;
+    color: #e2e8f0;
     font-size: 9px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
 }
 
 .contact-section ul {
@@ -90,13 +96,14 @@ body {
 
 .contact-section li {
     font-size: 10.5px;
-    color: #e2e8f0;
+    color: #cbd5e0;
     margin-bottom: 5px;
     padding: 0;
     display: flex;
     align-items: center;
     gap: 6px;
     line-height: 1.4;
+    font-family: 'Arial', sans-serif;
 }
 
 .contact-section li:last-child {
@@ -105,42 +112,54 @@ body {
 
 /* ================= CONTENT AREA ================= */
 .content {
-    padding: 22px 32px 16px;
+    padding: 24px 36px 20px;
 }
 
 /* ================= SECTIONS ================= */
 .section {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
+    page-break-inside: avoid;
 }
 
 .section h2 {
-    font-size: 11px;
-    color: #7c3aed;
+    font-size: 12px;
+    color: #1a2332;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-bottom: 1.5px solid #7c3aed;
-    padding-bottom: 5px;
-    margin-bottom: 12px;
-    font-weight: 600;
+    border-bottom: 2px solid #1a2332;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
 }
 
 /* ================= ABOUT ================= */
 .about {
-    background: #f8fafc;
-    padding: 14px 16px;
-    border-radius: 10px;
+    background: #f8f9fa;
+    padding: 14px 18px;
+    border-radius: 4px;
     font-size: 11px;
-    line-height: 1.55;
-    color: #475569;
+    line-height: 1.6;
+    color: #2d3748;
     text-align: justify;
-    border-left: 3px solid #7c3aed;
+    border-left: 3px solid #1a2332;
+    font-family: 'Arial', sans-serif;
+    page-break-inside: avoid;
+}
+
+.about p {
+    margin-bottom: 8px;
+}
+
+.about p:last-child {
+    margin-bottom: 0;
 }
 
 /* ================= TWO COLUMNS ================= */
 .two-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
     margin-bottom: 0;
 }
 
@@ -152,27 +171,29 @@ body {
 .card {
     background: #ffffff;
     padding: 12px 14px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    border: 1px solid #e9eef3;
-    border-left: 3px solid #7c3aed;
-    transition: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #2d3748;
+    page-break-inside: avoid;
 }
 
 .card h3,
 .card strong {
     font-size: 11.5px;
-    color: #0f172a;
-    font-weight: 600;
+    color: #1a2332;
+    font-weight: 700;
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
+    font-family: 'Arial', sans-serif;
 }
 
 .card p {
     font-size: 10.5px;
-    color: #64748b;
+    color: #4a5568;
     line-height: 1.4;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
+    font-family: 'Arial', sans-serif;
 }
 
 .card p:last-child {
@@ -181,7 +202,7 @@ body {
 
 .muted {
     font-size: 10px;
-    color: #94a3b8;
+    color: #718096;
 }
 
 /* ================= PROJECTS ================= */
@@ -204,37 +225,41 @@ body {
 .cert-item {
     background: #ffffff;
     padding: 10px 12px 10px 16px;
-    border-radius: 8px;
-    border: 1px solid #e9eef3;
-    border-left: 3px solid #7c3aed;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #2d3748;
     display: flex;
     flex-direction: column;
     gap: 2px;
+    page-break-inside: avoid;
 }
 
 .cert-item strong {
     font-size: 11px;
-    color: #0f172a;
-    font-weight: 600;
+    color: #1a2332;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
 }
 
 .cert-item span {
     font-size: 10px;
-    color: #64748b;
+    color: #4a5568;
+    font-family: 'Arial', sans-serif;
 }
 
 /* ================= FOOTER ================= */
 .cv-footer {
-    margin-top: 24px;
-    padding-top: 10px;
+    margin-top: 28px;
+    padding-top: 12px;
     border-top: 1px solid #e2e8f0;
     display: flex;
     justify-content: space-between;
-    font-size: 9.5px;
-    color: #94a3b8;
+    font-size: 9px;
+    color: #718096;
+    font-family: 'Arial', sans-serif;
 }
 
-/* ================= PRINT ================= */
+/* ================= PRINT STYLES ================= */
 @page {
     size: A4;
     margin: 0;
@@ -243,20 +268,41 @@ body {
 @media print {
     body {
         background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
     .cv {
         background: white;
         color: black;
         box-shadow: none;
+        width: 100%;
+        min-height: auto;
     }
 
     .header {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        background: #1a2332 !important;
     }
 
     .about {
-        background: #f8fafc !important;
+        background: #f8f9fa !important;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+
+    .card {
+        page-break-inside: avoid;
+    }
+
+    .cert-item {
+        page-break-inside: avoid;
+    }
+
+    .two-columns > div > * {
+        page-break-inside: avoid;
     }
 }

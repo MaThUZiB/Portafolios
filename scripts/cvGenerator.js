@@ -1,7 +1,5 @@
 export async function generateCvPdf() {
 
-    let container;
-
     try {
 
         // ============================
@@ -111,58 +109,26 @@ export async function generateCvPdf() {
         });
 
         // ============================
-        // 4. CREAR CONTENEDOR TEMPORAL
+        // 4. ABRIR EN NUEVA VENTANA E IMPRIMIR
         // ============================
-        container = document.createElement("div");
-        container.innerHTML = template;
+        const printWindow = window.open("", "_blank");
 
-        const pdfContent = container.querySelector("#cv-content");
-
-        if (!pdfContent) {
-            throw new Error("No se encontró #cv-content en la plantilla");
+        if (!printWindow) {
+            throw new Error("No se pudo abrir ventana. Permita pop-ups para este sitio.");
         }
 
-        // importante: ocultar visualmente
-        container.style.position = "fixed";
-        container.style.left = "-9999px";
-        container.style.top = "0";
+        printWindow.document.write(template);
+        printWindow.document.close();
 
-        document.body.appendChild(container);
-
-        // ============================
-        // 5. CONFIG PDF
-        // ============================
-        const opt = {
-            margin: 0,
-            filename: `CV_Ivan_Matus.pdf`,
-            image: { type: "jpeg", quality: 0.98 },
-            html2canvas: {
-                scale: 2,
-                useCORS: true,
-                backgroundColor: "#ffffff"
-            },
-            jsPDF: {
-                unit: "mm",
-                format: "a4",
-                orientation: "portrait"
-            },
-            pagebreak: {
-                mode: ["css", "legacy"]
-            }
+        // Esperar a que cargue el contenido y estilos
+        printWindow.onload = () => {
+            printWindow.focus();
+            printWindow.print();
         };
 
-        await html2pdf()
-            .set(opt)
-            .from(pdfContent)
-            .save();
-
     } catch (err) {
-        console.error("Error generando PDF:", err);
-        alert("Error generando CV");
-    } finally {
-        if (container && document.body.contains(container)) {
-            document.body.removeChild(container);
-        }
+        console.error("Error generando CV:", err);
+        alert("Error al abrir el CV. Verifique que los pop-ups estén permitidos.");
     }
 }
 

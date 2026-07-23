@@ -1,7 +1,7 @@
 export const translations = {
   en: {
     about_title: "About Me",
-    download_cv: "Download CV",
+    download_cv: "Print CV",
     projects: "Projects",
     tech_title: "Technology Stack",
 
@@ -88,7 +88,6 @@ export const translations = {
     
     footer_desc: "Computer Engineering · Business Administration & Commerce Engineering",
 
-    footer: "© 2026 · All rights reserved",
-    download_cv: "Download CV"
+    footer: "© 2026 · All rights reserved"
   }
 };
