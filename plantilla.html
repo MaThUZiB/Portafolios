@@ -140,6 +140,20 @@
             font-family: 'Arial', sans-serif;
         }
 
+        /* ================= SUMMARY ================= */
+        .summary {
+            background: #f8f9fa;
+            padding: 14px 18px;
+            border-radius: 4px;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #2d3748;
+            text-align: justify;
+            border-left: 3px solid #1a2332;
+            font-family: 'Arial', sans-serif;
+            page-break-inside: avoid;
+        }
+
         /* ================= ABOUT ================= */
         .about {
             background: #f8f9fa;
@@ -293,7 +307,7 @@
                 background: #1a2332 !important;
             }
 
-            .about {
+            .about, .summary {
                 background: #f8f9fa !important;
             }
 
@@ -346,41 +360,43 @@
 
     <div class="content">
 
-        <!-- ABOUT -->
+        <!-- SUMMARY -->
         <section class="section">
-            <h2>Acerca de mí</h2>
-            <div class="about">
-                {{about}}
+            <h2>Resumen Profesional</h2>
+            <div class="summary">
+                {{summary}}
             </div>
         </section>
 
-        <!-- EDUCATION + EXPERIENCE -->
-        <section class="section two-columns">
+        <!-- EXPERIENCE (PRIMERO) -->
+        <section class="section">
+            <h2>Experiencia Profesional</h2>
+            {{experience}}
+        </section>
 
-            <div>
-                <h2>Educación</h2>
-                {{education}}
-            </div>
+        <!-- EDUCATION (DESPUÉS) -->
+        <section class="section">
+            <h2>Educación</h2>
+            {{education}}
+        </section>
 
-            <div>
-                <h2>Experiencia</h2>
-                {{experience}}
-            </div>
-
+        <!-- TECH STACK -->
+        <section class="section">
+            <h2>Tecnologías</h2>
+            {{techStack}}
         </section>
 
         <!-- PROJECTS -->
         <section class="section">
-            <h2>Proyectos</h2>
+            <h2>Proyectos Destacados</h2>
             <div class="projects-grid">
                 {{projects}}
             </div>
         </section>
 
-        <!-- CERTIFICATIONS -->
+        <!-- CERTIFICATIONS (REDUCIDAS) -->
         <section class="section">
             <h2>Certificaciones</h2>
-
             <ul class="cert-grid">
                 {{certifications}}
             </ul>

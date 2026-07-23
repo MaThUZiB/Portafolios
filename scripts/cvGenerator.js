@@ -1,3 +1,20 @@
+async function imageToBase64(imgElement) {
+    if (!imgElement) return "";
+    const src = imgElement.src;
+    try {
+        const response = await fetch(src);
+        const blob = await response.blob();
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+    } catch {
+        return src;
+    }
+}
+
 export async function generateCvPdf() {
 
     try {
@@ -5,6 +22,8 @@ export async function generateCvPdf() {
         // ============================
         // 1. EXTRAER DATOS DEL DOM
         // ============================
+        const profileImageBase64 = await imageToBase64(document.querySelector(".imagen-perfil"));
+
         const data = {
             name: document.querySelector(".animated-title")?.textContent.trim() || "",
 
@@ -21,29 +40,7 @@ export async function generateCvPdf() {
                 `GitHub: github.com/MaThUZiB`
             ].map(c => `<li>${c}</li>`).join(""),
 
-            about: [
-                'about_1', 'about_2', 'about_3',
-                'about_4', 'about_5', 'about_6'
-            ]
-                .map(key => document.querySelector(`[data-key="${key}"]`)?.textContent)
-                .filter(Boolean)
-                .map(p => `<p>${p}</p>`)
-                .join(""),
-
-            education: [...document.querySelectorAll("#educacion .timeline-card")]
-                .map(card => {
-                    const title = card.querySelector("h4")?.textContent || "";
-                    const inst = card.querySelector(".empresa")?.textContent || "";
-                    const date = card.querySelector(".fecha")?.textContent || "";
-
-                    return `
-                        <div class="card">
-                            <strong>${title}</strong>
-                            <p>${inst}</p>
-                            <p>${date}</p>
-                        </div>
-                    `;
-                }).join(""),
+            summary: `<p>Desarrollador Full Stack con experiencia en Laravel, Python y tecnologías cloud (AWS). Formación en Ingeniería en Informática con base en Administración de Empresas. Enfocado en infraestructura, redes y ciberseguridad. Inglés nivel C1.</p>`,
 
             experience: [...document.querySelectorAll("#experiencia .timeline-card")]
                 .map(card => {
@@ -61,32 +58,89 @@ export async function generateCvPdf() {
                     `;
                 }).join(""),
 
+            education: [...document.querySelectorAll("#educacion .timeline-card")]
+                .map(card => {
+                    const title = card.querySelector("h4")?.textContent || "";
+                    const inst = card.querySelector(".empresa")?.textContent || "";
+                    const date = card.querySelector(".fecha")?.textContent || "";
+
+                    return `
+                        <div class="card">
+                            <strong>${title}</strong>
+                            <p>${inst}</p>
+                            <p>${date}</p>
+                        </div>
+                    `;
+                }).join(""),
+
+            techStack: `
+                <div class="card">
+                    <strong>Lenguajes</strong>
+                    <p>Python, PHP, JavaScript, TypeScript, C#</p>
+                </div>
+                <div class="card">
+                    <strong>Frameworks</strong>
+                    <p>Laravel, Django, React, Vue, Next.js, Tailwind CSS</p>
+                </div>
+                <div class="card">
+                    <strong>Cloud & Infraestructura</strong>
+                    <p>AWS (EC2, S3, VPC, RDS), Azure, Linux, Windows Server</p>
+                </div>
+                <div class="card">
+                    <strong>Bases de Datos</strong>
+                    <p>PostgreSQL, MySQL, MongoDB, Oracle Database, Firebase</p>
+                </div>
+                <div class="card">
+                    <strong>Herramientas</strong>
+                    <p>Git, Kali Linux, Nmap, VirtualBox, Android Studio</p>
+                </div>
+            `,
+
             projects: [...document.querySelectorAll(".proyecto-card")]
                 .map(card => {
                     const title = card.querySelector(".titulo-proyecto")?.textContent || "";
                     const desc = card.querySelector(".contenido-proyecto p")?.textContent || "";
+                    const tech = card.querySelector(".tech-mini")?.textContent || "";
 
                     return `
                         <div class="card">
                             <strong>${title}</strong>
                             <p>${desc}</p>
+                            <p class="muted">${tech}</p>
                         </div>
                     `;
                 }).join(""),
 
-            certifications: [...document.querySelectorAll(".cert-card")]
-                .map(card => {
-                    const title = card.querySelector('.title')?.textContent || "";
-                    const issuer = card.querySelector('.subtitle')?.textContent || "";
+            // Solo certificaciones relevantes: AWS, Full Stack, Infraestructura TI, Inglés
+            certifications: (() => {
+                const certs = [...document.querySelectorAll(".cert-card")];
+                const relevantTitles = [
+                    'AWS Academy Graduate',
+                    'Desarrollador Full Stack',
+                    'Infraestructura de TI segura',
+                    'Inglés'
+                ];
 
-                    return title
-                        ? `<li class="cert-item">
-                    <strong>${title}</strong>
-                    <span>${issuer}</span></li>`
-                        : "";
-                }).join(""),
+                return certs
+                    .filter(card => {
+                        const title = card.querySelector('.title')?.textContent || "";
+                        return relevantTitles.some(r => title.includes(r));
+                    })
+                    .map(card => {
+                        const title = card.querySelector('.title')?.textContent || "";
+                        const issuer = card.querySelector('.subtitle')?.textContent || "";
 
-            profileImage: document.querySelector(".imagen-perfil")?.src || ""
+                        return `
+                            <li class="cert-item">
+                                <strong>${title}</strong>
+                                <span>${issuer}</span>
+                            </li>
+                        `;
+                    }).join("");
+            })(),
+
+            profileImage: profileImageBase64
+
         };
 
         // ============================
