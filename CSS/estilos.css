@@ -5,10 +5,12 @@
 body {
     margin: 0;
     width: 100%;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #E2E8F0;
     background:
-        radial-gradient(ellipse at 20% 30%, rgba(168, 85, 247, 0.08), transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.06), transparent 50%),
-        #020617;
+        radial-gradient(ellipse at 20% 30%, rgba(79, 70, 229, 0.10), transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(56, 189, 248, 0.05), transparent 50%),
+        #0B1120;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -19,12 +21,12 @@ html {
 }
 
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0a0a1a; }
+::-webkit-scrollbar-track { background: #0B1120; }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #A855F7, #C084FC);
+    background: linear-gradient(180deg, #4F46E5, #818CF8);
     border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover { background: #C084FC; }
+::-webkit-scrollbar-thumb:hover { background: #818CF8; }
 
 .wrapper {
     position: relative;
@@ -81,11 +83,11 @@ html {
     top: 1rem;
     right: 1rem;
     font-weight: 700;
-    color: #dfc1fc;
+    color: #C7D2FE;
     font-family: 'Inter';
     border-radius: 14px;
-    background-color: rgba(45, 5, 75, 0.6);
-    border: 2px solid rgba(168, 85, 247, 0.4);
+    background-color: rgba(23, 37, 84, 0.6);
+    border: 2px solid rgba(99, 102, 241, 0.45);
     backdrop-filter: blur(8px);
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -95,15 +97,15 @@ html {
 }
 
 .translate-btn:hover {
-    background-color: rgba(113, 16, 187, 0.8);
-    border-color: #C084FC;
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+    background-color: #4338CA;
+    border-color: #A5B4FC;
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.35);
     transform: translateY(-2px);
 }
 
 .animated-title span {
     cursor: default;
-    background: linear-gradient(90deg, #A855F7, #C084FC, #D8B4FE, #EC4899, #A855F7);
+    background: linear-gradient(90deg, #818CF8, #A5B4FC, #E2E8F0, #818CF8);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -114,7 +116,7 @@ html {
 
 .animated-title span:hover {
     background-position: right center;
-    filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6));
+    filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.55));
 }
 
 .pre-1 {
@@ -130,12 +132,12 @@ html {
     z-index: 2;
     background: conic-gradient(
         from 0deg,
-        #A855F7,
-        #C084FC,
-        #EC4899,
-        #A855F7,
-        #3B82F6,
-        #A855F7
+        #6366F1,
+        #818CF8,
+        #38BDF8,
+        #6366F1,
+        #38BDF8,
+        #6366F1
     );
     animation: spin-border 3s linear infinite;
     -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #fff calc(100% - 3px));
@@ -147,7 +149,7 @@ html {
     position: absolute;
     inset: -10px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.25), transparent 70%);
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.28), transparent 70%);
     filter: blur(15px);
     animation: pulse-glow 3s ease-in-out infinite;
     z-index: 0;
@@ -188,7 +190,7 @@ html {
     margin-bottom: 1rem;
     margin-left: 70px;
     font-weight: 600;
-    color: #dfc1fc;
+    color: #C7D2FE;
 }
 
 .titulos-presentacion div {
@@ -197,7 +199,6 @@ html {
     cursor: default;
 }
 
-/* línea animada */
 .titulos-presentacion div::after {
     content: "";
     position: absolute;
@@ -205,11 +206,10 @@ html {
     bottom: -5px;
     width: 0%;
     height: 2px;
-    background: linear-gradient(90deg, #A855F7, #C084FC);
+    background: linear-gradient(90deg, #6366F1, #A5B4FC);
     transition: width 0.3s ease;
 }
 
-/* hover */
 .titulos-presentacion div:hover {
     transform: translateX(5px);
     color: #fff;
@@ -257,20 +257,22 @@ html {
 
 .contactos i {
     font-size: 1.2rem;
-    color: #7110bb;
+    color: #818CF8;
     transition: transform 0.2s ease, color 0.2s ease;
     transform-origin: center;
 }
 
 .contactos div:hover i {
-    color: #C084FC;
+    color: #A5B4FC;
     transform: scale(1.2);
 }
 
-.correo {
+.correo,
+.tele,
+.ciudad {
     font-size: 1.1rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #F472B6, #E879F9, #C084FC);
+    background: linear-gradient(135deg, #A5B4FC, #818CF8, #C7D2FE);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -280,24 +282,6 @@ html {
 
 .tele {
     font-size: 1rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #F472B6, #E879F9, #C084FC);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: transform 0.2s ease;
-    transform-origin: center;
-}
-
-.ciudad {
-    font-size: 1.1rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #F472B6, #E879F9, #C084FC);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: transform 0.2s ease;
-    transform-origin: center;
 }
 
 .botones {
@@ -330,12 +314,12 @@ html {
 
 .descarga {
     font-weight: 700;
-    color: #dfc1fc;
+    color: #C7D2FE;
     text-decoration: none;
     font-family: 'Inter';
     border-radius: 14px;
-    background-color: rgba(45, 5, 75, 0.6);
-    border: 2px solid rgba(168, 85, 247, 0.4);
+    background-color: rgba(23, 37, 84, 0.6);
+    border: 2px solid rgba(99, 102, 241, 0.45);
     backdrop-filter: blur(8px);
     padding: 1rem;
     cursor: pointer;
@@ -344,14 +328,14 @@ html {
 
 .descarga:hover {
     transform: scale(1.1);
-    background-color: #7110bb;
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+    background-color: #4338CA;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
 }
 
-.translate-btn:hover {
-    transform: scale(1.05);
-    background-color: #7110bb;
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+.descarga.disable {
+    opacity: 0.6;
+    cursor: progress;
+    pointer-events: none;
 }
 
 .redes {
@@ -420,7 +404,7 @@ html {
     border-radius: inherit;
     background: radial-gradient(
         circle at var(--glow-x, 50%) var(--glow-y, 50%),
-        rgba(168, 85, 247, 0.15),
+        rgba(99, 102, 241, 0.14),
         transparent 60%
     );
     pointer-events: none;
@@ -441,10 +425,10 @@ html {
     font-family: 'Poppins';
     position: relative;
     overflow: hidden;
-    background: rgba(17, 24, 39, 0.65);
+    background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 14px;
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.25);
     padding: 2rem;
 }
 
@@ -453,7 +437,7 @@ html {
     position: absolute;
     inset: 0;
     background: radial-gradient(circle at top left,
-            rgba(168, 85, 247, 0.25),
+            rgba(99, 102, 241, 0.18),
             transparent 60%);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -464,8 +448,8 @@ html {
 }
 
 .box:hover {
-    border-color: rgba(192, 132, 252, 0.6);
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.25), 0 10px 40px rgba(168, 85, 247, 0.1);
+    border-color: rgba(165, 180, 252, 0.6);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.25), 0 10px 40px rgba(99, 102, 241, 0.1);
 }
 
 .box p {
@@ -473,7 +457,7 @@ html {
 }
 
 .box i {
-    background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
+    background: linear-gradient(135deg, #6366F1, #818CF8, #A5B4FC);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -484,7 +468,7 @@ html {
 .number {
     font-size: 1.8rem;
     font-weight: 900;
-    background: linear-gradient(135deg, #34D399, #6EE7B7, #A7F3D0);
+    background: linear-gradient(135deg, #A5B4FC, #E2E8F0);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -492,20 +476,20 @@ html {
 
 .cuadros p {
     font-weight: 700;
-    color: #eb89fa;
+    color: #C7D2FE;
 }
 
 .acerca {
     font-family: 'Inter';
-    color: #cbd5f5;
+    color: #CBD5E1;
     border-radius: 14px;
     padding: 25px;
 
     background: linear-gradient(135deg,
-            rgba(17, 24, 39, 0.85),
-            rgba(30, 27, 75, 0.6));
+            rgba(15, 23, 42, 0.85),
+            rgba(30, 41, 59, 0.6));
 
-    border: 1px solid rgba(168, 85, 247, 0.25);
+    border: 1px solid rgba(99, 102, 241, 0.25);
     backdrop-filter: blur(6px);
 }
 
@@ -514,24 +498,20 @@ html {
     border-radius: 12px;
     padding: 20px;
 
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(168, 85, 247, 0.15);
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(99, 102, 241, 0.15);
 }
 
 .parrafos p {
-    color: #d1d5db;
+    color: #CBD5E1;
     line-height: 1.6;
-}
-
-.parrafos p strong {
-    color: #C084FC;
 }
 
 .encabe {
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: #dfc1fc;
+    color: #E2E8F0;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -539,7 +519,7 @@ html {
 
 .encabe i {
     font-size: 1.4rem;
-    background: linear-gradient(135deg, #A855F7, #C084FC, #3B82F6);
+    background: linear-gradient(135deg, #6366F1, #818CF8);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -557,18 +537,18 @@ html {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, #A855F7, transparent);
+    background: linear-gradient(90deg, #6366F1, transparent);
     border-radius: 1px;
 }
 
 .acerca:hover {
-    border-color: rgba(192, 132, 252, 0.5);
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+    border-color: rgba(129, 140, 248, 0.5);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
     transition: all 0.3s ease;
 }
 
 .parrafos span {
-    color: #A78BFA;
+    color: #A5B4FC;
     font-weight: 500;
 }
 
@@ -588,23 +568,21 @@ html {
 
 .tec-header i {
     font-size: 2rem;
-    color: #A855F7;
+    color: #818CF8;
 }
 
 .tec-header h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: #dfc1fc;
+    color: #E2E8F0;
 }
-
 
 .tec-columns {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     align-items: stretch;
-    /* Esto asegura que todas las celdas tengan igual altura */
 }
 
 .tec-col {
@@ -619,32 +597,29 @@ html {
     justify-content: flex-start;
     padding: 1.5rem;
     border-radius: 16px;
-    border: 1px solid rgba(124, 58, 237, 0.3);
+    border: 1px solid rgba(99, 102, 241, 0.28);
 
-    /* Fondo oscuro con ligera transparencia y efecto de vidrio */
-    background: rgba(17, 12, 35, 0.7);
+    background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(8px) saturate(150%);
     -webkit-backdrop-filter: blur(8px) saturate(150%);
 
-    /* Sombra interior suave */
-    box-shadow: inset 0 0 8px rgba(124, 58, 237, 0.1);
+    box-shadow: inset 0 0 8px rgba(99, 102, 241, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 .categoria:hover {
-    border-color: rgba(192, 132, 252, 0.5);
-    background: rgba(29, 20, 60, 0.75);
-    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.15), inset 0 0 12px rgba(192, 132, 252, 0.05);
+    border-color: rgba(129, 140, 248, 0.5);
+    background: rgba(30, 41, 59, 0.8);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.15), inset 0 0 12px rgba(129, 140, 248, 0.05);
 }
 
 .categoria h4 {
     font-family: 'Inter';
     font-weight: 600;
     font-size: 1.1rem;
-    color: #d1d5db;
+    color: #D1D5DB;
     margin-bottom: 0.6rem;
 }
-
 
 .badges {
     list-style: none;
@@ -656,33 +631,28 @@ html {
 .badges li {
     font-family: 'Inter';
     font-size: 0.9rem;
-    /* un poco más grande */
     padding: 0.5rem 0.8rem;
-    /* más acolchado */
     border-radius: 12px;
-    /* más suave que 999px */
-    background: rgba(30, 27, 75, 0.4);
-    /* fondo más visible */
-    color: #e0d7fa;
-    border: 1px solid rgba(168, 85, 247, 0.25);
+    background: rgba(30, 41, 59, 0.5);
+    color: #C7D2FE;
+    border: 1px solid rgba(99, 102, 241, 0.3);
     transition: all 0.3s ease;
     cursor: default;
 }
 
 .badges li:hover {
     color: #fff;
-    background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
-    border-color: rgba(192, 132, 252, 0.8);
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+    background: linear-gradient(135deg, #4338CA, #6366F1, #818CF8);
+    border-color: rgba(165, 180, 252, 0.8);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
     transform: translateY(-3px) scale(1.05);
 }
 
 .categoria h4 i {
     margin-right: 0.5rem;
-    color: #A855F7;
-    /* gradiente opcional si quieres */
+    color: #818CF8;
     background-clip: text;
-    background: linear-gradient(135deg, #A855F7, #C084FC, #3B82F6);
+    background: linear-gradient(135deg, #6366F1, #818CF8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -695,7 +665,6 @@ html {
     padding: 2rem;
 }
 
-/* contenedor de cards */
 .proyectos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -706,35 +675,33 @@ html {
     padding: 1.5rem;
     border-radius: 16px;
 
-    background: rgba(17, 12, 35, 0.7);
+    background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(168, 85, 247, 0.25);
+    border: 1px solid rgba(99, 102, 241, 0.25);
 
     display: flex;
     flex-direction: column;
 
     gap: 0.8rem;
     height: 100%;
-    /* clave */
 
     transition: all 0.3s ease;
 }
 
-/* esto empuja el tag abajo */
 .contenido-proyecto {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     flex-grow: 1;
     margin-top: 0.5rem;
-    color: #d1d5db;
+    color: #CBD5E1;
     font-family: 'Inter';
     line-height: 1.6;
 }
 
 .proyecto-card:hover {
-    border-color: rgba(192, 132, 252, 0.6);
-    box-shadow: 0 10px 40px rgba(168, 85, 247, 0.25);
+    border-color: rgba(129, 140, 248, 0.6);
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.25);
 }
 
 @media (max-width: 900px) {
@@ -747,18 +714,16 @@ html {
     text-decoration: none;
 }
 
-/* título proyecto */
 .titulo-proyecto {
     font-family: 'Inter';
     font-size: 1.3rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #A855F7, #C084FC, #3B82F6);
+    background: linear-gradient(135deg, #818CF8, #A5B4FC);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* bullets opcionales */
 .contenido-proyecto p {
     font-family: 'Poppins';
     margin: 0.2rem 0;
@@ -772,18 +737,18 @@ html {
 
 .link-proyecto {
     font-size: 0.9rem;
-    color: #A855F7;
+    color: #818CF8;
     transition: all 0.2s ease;
 }
 
 .link-proyecto:hover {
-    color: #C084FC;
+    color: #A5B4FC;
     transform: scale(1.2);
 }
 
 .tech-mini {
     font-size: 0.75rem;
-    color: #9CA3AF;
+    color: #64748B;
 }
 
 .certificaciones {
@@ -799,14 +764,14 @@ html {
     justify-content: space-between;
     padding: 1rem 1.5rem;
     border-radius: 12px;
-    border: 2px solid #FFA500;
-    background: linear-gradient(135deg, #3a3a3a, #4b3f2f);
-    color: white;
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    background: linear-gradient(135deg, #1E293B, #0F172A);
+    color: #E2E8F0;
 }
 
 .cert-card:hover {
-    border-color: #FFA500;
-    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.3);
+    border-color: rgba(165, 180, 252, 0.6);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.25);
 }
 
 .cert-card .info {
@@ -817,8 +782,7 @@ html {
 
 .cert-card i {
     font-size: 1.8rem;
-    color: #FFA500;
-    /* mismo color que el borde */
+    color: #818CF8;
     flex-shrink: 0;
 }
 
@@ -834,17 +798,16 @@ html {
 
 .cert-card .text .subtitle {
     font-size: 0.85rem;
-    color: #f5f5f5;
+    color: #94A3B8;
 }
 
 .cert-card .check {
     font-size: 1.2rem;
-    color: #00c853;
-    /* verde */
+    color: #34D399;
 }
 
 .relo {
-    background: linear-gradient(135deg, #10B981, #34D399);
+    background: linear-gradient(135deg, #FBBF24, #F59E0B);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -862,21 +825,20 @@ html {
     margin-top: 3rem;
 }
 
-/* columnas tipo card */
 .columna-1,
 .columna-2 {
-    background: rgba(17, 12, 35, 0.7);
+    background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(8px);
     border-radius: 16px;
     padding: 1.5rem;
-    border: 1px solid rgba(168, 85, 247, 0.25);
+    border: 1px solid rgba(99, 102, 241, 0.25);
     transition: all 0.3s ease;
 }
 
 .columna-1:hover,
 .columna-2:hover {
-    border-color: rgba(192, 132, 252, 0.6);
-    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+    border-color: rgba(129, 140, 248, 0.6);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
 }
 
 .list-estudios,
@@ -892,15 +854,14 @@ html {
     padding: 0.8rem 0.8rem 0.8rem 2rem;
     margin-bottom: 0.6rem;
     border-radius: 10px;
-    background: rgba(30, 27, 75, 0.4);
-    border: 1px solid rgba(168, 85, 247, 0.15);
-    color: #d1d5db;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    color: #CBD5E1;
     font-family: 'Inter';
     font-size: 0.95rem;
     transition: all 0.25s ease;
 }
 
-/* bullet personalizado */
 .list-estudios li::before,
 .list-experiencia li::before {
     content: "●";
@@ -910,21 +871,20 @@ html {
     transform: translateY(-50%);
     font-size: 0.7rem;
     background-clip: text;
-    background: linear-gradient(135deg, #A855F7, #C084FC);
+    background: linear-gradient(135deg, #6366F1, #A5B4FC);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* hover */
 .list-estudios li:hover,
 .list-experiencia li:hover {
     transform: translateX(5px);
-    border-color: rgba(192, 132, 252, 0.5);
-    background: rgba(55, 48, 163, 0.3);
+    border-color: rgba(129, 140, 248, 0.5);
+    background: rgba(67, 56, 202, 0.2);
 }
 
 .titulos {
-    color: #C084FC;
+    color: #A5B4FC;
     font-weight: 600;
 }
 
@@ -948,7 +908,6 @@ html {
     padding-left: 2rem;
 }
 
-/* línea vertical */
 .timeline::before {
     content: "";
     position: absolute;
@@ -956,10 +915,9 @@ html {
     top: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, #A855F7, #C084FC, transparent);
+    background: linear-gradient(to bottom, #6366F1, #818CF8, transparent);
 }
 
-/* item */
 .timeline-item {
     position: relative;
     display: flex;
@@ -967,23 +925,12 @@ html {
     padding-left: 0.5rem;
 }
 
-/* punto */
-.timeline-dot {
-    position: absolute;
-    left: 3px;
-    width: 15px;
-    height: 15px;
-    background: #A855F7;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
-}
-
 .timeline-dot {
     position: absolute;
     left: 1px;
     width: 14px;
     height: 14px;
-    background: #A855F7;
+    background: #6366F1;
     border-radius: 50%;
 }
 
@@ -992,7 +939,7 @@ html {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: rgba(168, 85, 247, 0.5);
+    background: rgba(99, 102, 241, 0.5);
     animation: ripple 2s infinite;
 }
 
@@ -1023,19 +970,17 @@ html {
     margin-left: 2rem;
     padding: 1.2rem 1.5rem;
     border-radius: 14px;
-    background: rgba(17, 12, 35, 0.7);
+    background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(168, 85, 247, 0.25);
+    border: 1px solid rgba(99, 102, 241, 0.25);
     transition: all 0.3s ease;
     flex: 1;
-    /* 👈 IMPORTANTE */
     min-height: 110px;
-    /* 👈 uniformidad mínima */
 }
 
 .timeline-card:hover {
-    border-color: rgba(192, 132, 252, 0.6);
-    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+    border-color: rgba(129, 140, 248, 0.6);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
 }
 
 .timeline-card h4 {
@@ -1043,12 +988,12 @@ html {
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 1.1rem;
-    color: #f3f4f6;
+    color: #F1F5F9;
 }
 
 .empresa {
     display: block;
-    color: #C084FC;
+    color: #A5B4FC;
     font-size: 0.9rem;
     margin: 0.2rem 0;
 }
@@ -1056,14 +1001,14 @@ html {
 .fecha {
     display: block;
     font-size: 0.8rem;
-    color: #9CA3AF;
+    color: #64748B;
     margin-bottom: 0.5rem;
 }
 
 .timeline-card p {
     font-family: 'Inter';
     font-size: 0.9rem;
-    color: #d1d5db;
+    color: #CBD5E1;
     line-height: 1.5;
 }
 
@@ -1081,7 +1026,7 @@ html {
     font-size: 0.7rem;
     padding: 0.2rem 0.5rem;
     border-radius: 6px;
-    background: #065f46;
+    background: #064E3B;
     color: #34D399;
     margin-left: auto;
 }
@@ -1092,14 +1037,14 @@ html {
     position: relative;
     left: -2.5rem;
     top: 1.2rem;
-    color: #A855F7;
+    color: #818CF8;
 }
 
 .footer {
     margin-top: 4rem;
     padding: 2rem 1rem;
-    background: linear-gradient(135deg, rgba(17, 12, 35, 0.9), rgba(30, 27, 75, 0.7));
-    border-top: 1px solid rgba(168, 85, 247, 0.2);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.7));
+    border-top: 1px solid rgba(99, 102, 241, 0.2);
     backdrop-filter: blur(10px);
 }
 
@@ -1113,13 +1058,12 @@ html {
     flex-wrap: wrap;
 }
 
-/* izquierda */
 .footer-left h4 {
     font-family: 'Poppins';
     font-size: 1.2rem;
     margin: 0;
 
-    background: linear-gradient(135deg, #A855F7, #C084FC, #3B82F6);
+    background: linear-gradient(135deg, #818CF8, #A5B4FC);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1128,11 +1072,10 @@ html {
 .footer-left p {
     font-family: 'Inter';
     font-size: 0.85rem;
-    color: #9CA3AF;
+    color: #64748B;
     margin-top: 0.3rem;
 }
 
-/* centro (iconos) */
 .footer-center {
     display: flex;
     gap: 1.2rem;
@@ -1140,7 +1083,7 @@ html {
 
 .footer-center a {
     font-size: 1.3rem;
-    color: #A855F7;
+    color: #818CF8;
     text-decoration: none;
     width: 40px;
     height: 40px;
@@ -1148,27 +1091,24 @@ html {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background: rgba(30, 27, 75, 0.4);
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(99, 102, 241, 0.25);
     transition: all 0.25s ease;
 }
 
 .footer-center a:hover {
     transform: translateY(-4px) scale(1.1);
     color: white;
-    background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
-    box-shadow: 0 6px 15px rgba(168, 85, 247, 0.3);
+    background: linear-gradient(135deg, #4338CA, #6366F1, #818CF8);
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
 }
 
-
-/* derecha */
 .footer-right p {
     font-family: 'Inter';
     font-size: 0.8rem;
-    color: #6B7280;
+    color: #64748B;
 }
 
-/* responsive */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;

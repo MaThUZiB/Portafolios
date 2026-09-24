@@ -1,195 +1,304 @@
-async function imageToBase64(imgElement) {
-    if (!imgElement) return "";
-    const src = imgElement.src;
-    try {
-        const response = await fetch(src);
-        const blob = await response.blob();
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.onerror = reject;
-            reader.readAsDataURL(blob);
-        });
-    } catch {
-        return src;
+/* Script clásico (funciona local en file:// y online en http/https) */
+(function () {
+    "use strict";
+
+    const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+    const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+
+    function imageToBase64(img) {
+        if (!img) return Promise.resolve("");
+        return fetch(img.src)
+            .then(function (r) { return r.blob(); })
+            .then(function (blob) {
+                return new Promise(function (resolve, reject) {
+                    const reader = new FileReader();
+                    reader.onloadend = function () { resolve(reader.result); };
+                    reader.onerror = reject;
+                    reader.readAsDataURL(blob);
+                });
+            })
+            .catch(function () { return img.src; });
     }
-}
 
-export async function generateCvPdf() {
+    function isEnglishPage() {
+        const btn = $("#translateBtn");
+        return btn ? /\bEspañol\b/.test(btn.textContent) : false;
+    }
 
-    try {
+    function getSummary() {
+        return isEnglishPage()
+            ? "<p>Full stack developer with experience in Laravel, Python and TypeScript, and expertise in cloud deployments (AWS, Azure). Computer Engineering background, reinforced by Business Administration studies. Currently specializing in infrastructure, networks and cybersecurity. English proficiency C1.</p>"
+            : "<p>Desarrollador full stack con experiencia en Laravel, Python y TypeScript, especializado en despliegues en la nube (AWS, Azure). Formaci\u00f3n en Ingenier\u00eda en Inform\u00e1tica reforzada por estudios en Administraci\u00f3n de Empresas. Actualmente enfocado en infraestructura, redes y ciberseguridad. Ingl\u00e9s nivel C1.</p>";
+    }
 
-        // ============================
-        // 1. EXTRAER DATOS DEL DOM
-        // ============================
-        const profileImageBase64 = await imageToBase64(document.querySelector(".imagen-perfil"));
+    function getContact() {
+        const items = [
+            ["Email", ($(".correo") || {}).textContent ? $(".correo").textContent.trim() : ""],
+            ["Tel\u00e9fono", ($(".tele") || {}).textContent ? $(".tele").textContent.trim() : ""],
+            ["Ubicaci\u00f3n", ($(".ciudad") || {}).textContent ? $(".ciudad").textContent.trim() : ""],
+            ["GitHub", "github.com/MaThUZiB"],
+            ["LinkedIn", "linkedin.com/in/iv\u00e1n-matus-angulo-814bb1316"]
+        ].filter(function (pair) { return pair[1]; });
 
-        const data = {
-            name: document.querySelector(".animated-title")?.textContent.trim() || "",
+        return items.map(function (pair) {
+            return "<li><strong>" + pair[0] + "</strong><span>" + pair[1] + "</span></li>";
+        }).join("");
+    }
 
-            titles: [
-                document.querySelector('[data-key="title_1"]')?.textContent,
-                document.querySelector('[data-key="title_2"]')?.textContent,
-                document.querySelector('[data-key="title_3"]')?.textContent
-            ].filter(Boolean).join(" | "),
+    function text(el) {
+        return el ? (el.textContent || "").trim() : "";
+    }
 
-            contact: [
-                `Email: ${document.querySelector(".correo")?.textContent || ""}`,
-                `Teléfono: ${document.querySelector(".tele")?.textContent || ""}`,
-                `Ubicación: ${document.querySelector(".ciudad")?.textContent || ""}`,
-                `GitHub: github.com/MaThUZiB`
-            ].map(c => `<li>${c}</li>`).join(""),
+    function getExperience() {
+        return $$("#experiencia .timeline-card").map(function (card) {
+            const title = text($("h4", card));
+            const company = text($(".empresa", card));
+            const date = text($(".fecha", card));
+            const desc = text($("p", card));
+            return (
+                '<div class="card">' +
+                '<div class="exp-head">' +
+                "<strong>" + title + "</strong>" +
+                (date ? '<span class="date">' + date + "</span>" : "") +
+                "</div>" +
+                '<p class="company">' + company + "</p>" +
+                (desc ? "<p>" + desc + "</p>" : "") +
+                "</div>"
+            );
+        }).join("");
+    }
 
-            summary: `<p>Desarrollador Full Stack con experiencia en Laravel, Python y tecnologías cloud (AWS). Formación en Ingeniería en Informática con base en Administración de Empresas. Enfocado en infraestructura, redes y ciberseguridad. Inglés nivel C1.</p>`,
+    function getEducation() {
+        return $$("#educacion .timeline-card").map(function (card) {
+            const title = text($("h4", card));
+            const inst = text($(".empresa", card));
+            const date = text($(".fecha", card));
+            return (
+                '<div class="card">' +
+                '<div class="exp-head">' +
+                "<strong>" + title + "</strong>" +
+                (date ? '<span class="date">' + date + "</span>" : "") +
+                "</div>" +
+                '<p class="company">' + inst + "</p>" +
+                "</div>"
+            );
+        }).join("");
+    }
 
-            experience: [...document.querySelectorAll("#experiencia .timeline-card")]
-                .map(card => {
-                    const title = card.querySelector("h4")?.textContent || "";
-                    const company = card.querySelector(".empresa")?.textContent || "";
-                    const date = card.querySelector(".fecha")?.textContent || "";
-                    const desc = card.querySelector("p")?.textContent || "";
+    function getTechStack() {
+        return $$(".categoria").map(function (cat) {
+            const title = text($("h4", cat));
+            const items = $$("ul.badges li", cat).map(function (li) { return li.textContent.trim(); });
+            return '<div class="card"><strong>' + title + "</strong><p>" + items.join(", ") + "</p></div>";
+        }).join("");
+    }
 
-                    return `
-                        <div class="card">
-                            <strong>${title} - ${company}</strong>
-                            <p>${date}</p>
-                            <p>${desc}</p>
-                        </div>
-                    `;
-                }).join(""),
+    function getProjects() {
+        return $$(".proyecto-card").map(function (card) {
+            const title = text($(".titulo-proyecto", card));
+            const desc = text($(".contenido-proyecto p", card));
+            const tech = text($(".tech-mini", card));
+            return (
+                '<div class="card">' +
+                '<div class="exp-head"><strong>' + title + "</strong></div>" +
+                (desc ? "<p>" + desc + "</p>" : "") +
+                (tech ? '<p class="muted">' + tech + "</p>" : "") +
+                "</div>"
+            );
+        }).join("");
+    }
 
-            education: [...document.querySelectorAll("#educacion .timeline-card")]
-                .map(card => {
-                    const title = card.querySelector("h4")?.textContent || "";
-                    const inst = card.querySelector(".empresa")?.textContent || "";
-                    const date = card.querySelector(".fecha")?.textContent || "";
+    function getCertifications() {
+        const relevantTokens = [
+            "AWS Academy Graduate",
+            "Full Stack",
+            "Infraestructura",
+            "Secure IT",
+            "Ingl\u00e9s",
+            "English"
+        ];
+        return $$(".cert-card")
+            .filter(function (card) {
+                const title = ($(".title", card) || {}).textContent || "";
+                return relevantTokens.some(function (t) { return title.indexOf(t) !== -1; });
+            })
+            .map(function (card) {
+                const title = text($(".title", card));
+                const issuer = text($(".subtitle", card));
+                return "<li><strong>" + title + "</strong><span>" + issuer + "</span></li>";
+            })
+            .join("");
+    }
 
-                    return `
-                        <div class="card">
-                            <strong>${title}</strong>
-                            <p>${inst}</p>
-                            <p>${date}</p>
-                        </div>
-                    `;
-                }).join(""),
+    function getTemplate() {
+        const tpl = document.getElementById("cv-template");
+        if (tpl && tpl.innerHTML.trim()) return tpl.innerHTML.trim();
+        return null;
+    }
 
-            techStack: `
-                <div class="card">
-                    <strong>Lenguajes</strong>
-                    <p>Python, PHP, JavaScript, TypeScript, C#</p>
-                </div>
-                <div class="card">
-                    <strong>Frameworks</strong>
-                    <p>Laravel, Django, React, Vue, Next.js, Tailwind CSS</p>
-                </div>
-                <div class="card">
-                    <strong>Cloud & Infraestructura</strong>
-                    <p>AWS (EC2, S3, VPC, RDS), Azure, Linux, Windows Server</p>
-                </div>
-                <div class="card">
-                    <strong>Bases de Datos</strong>
-                    <p>PostgreSQL, MySQL, MongoDB, Oracle Database, Firebase</p>
-                </div>
-                <div class="card">
-                    <strong>Herramientas</strong>
-                    <p>Git, Kali Linux, Nmap, VirtualBox, Android Studio</p>
-                </div>
-            `,
+    function fillTemplate(template, data) {
+        Object.keys(data).forEach(function (key) {
+            template = template.split("{{" + key + "}}").join(data[key] || "");
+        });
+        return template;
+    }
 
-            projects: [...document.querySelectorAll(".proyecto-card")]
-                .map(card => {
-                    const title = card.querySelector(".titulo-proyecto")?.textContent || "";
-                    const desc = card.querySelector(".contenido-proyecto p")?.textContent || "";
-                    const tech = card.querySelector(".tech-mini")?.textContent || "";
+    function buildDocument(template) {
+        let css = '<link rel="stylesheet" href="CSS/plantilla.css">';
+        try {
+            return fetch("CSS/plantilla.css")
+                .then(function (res) {
+                    if (!res.ok) return css;
+                    return res.text().then(function (t) {
+                        return "<style>" + t + "</style>";
+                    });
+                })
+                .catch(function () { return css; })
+                .then(function (finalCss) {
+                    return '<!DOCTYPE html>\n<html lang="es">\n<head>\n<meta charset="UTF-8">\n<title>CV - Iv\u00e1n Matus Angulo</title>\n' + finalCss + '\n</head>\n<body>\n' + template + "\n</body>\n</html>";
+                });
+        } catch (e) {
+            return Promise.resolve(
+                '<!DOCTYPE html>\n<html lang="es">\n<head>\n<meta charset="UTF-8">\n<title>CV - Iv\u00e1n Matus Angulo</title>\n' + css + '\n</head>\n<body>\n' + template + "\n</body>\n</html>"
+            );
+        }
+    }
 
-                    return `
-                        <div class="card">
-                            <strong>${title}</strong>
-                            <p>${desc}</p>
-                            <p class="muted">${tech}</p>
-                        </div>
-                    `;
-                }).join(""),
+    function printViaPopup(html) {
+        const popup = window.open("", "_blank");
+        if (!popup) throw new Error("Pop-up bloqueado");
+        popup.document.write(html);
+        popup.document.close();
+        let done = false;
+        const fire = function () {
+            if (done) return;
+            done = true;
+            popup.focus();
+            popup.print();
+            setTimeout(function () { popup.close(); }, 60000);
+        };
+        popup.addEventListener("load", function () { setTimeout(fire, 400); }, { once: true });
+        setTimeout(fire, 3500);
+    }
 
-            // Solo certificaciones relevantes: AWS, Full Stack, Infraestructura TI, Inglés
-            certifications: (() => {
-                const certs = [...document.querySelectorAll(".cert-card")];
-                const relevantTitles = [
-                    'AWS Academy Graduate',
-                    'Desarrollador Full Stack',
-                    'Infraestructura de TI segura',
-                    'Inglés'
-                ];
+    function printTemplate(html) {
+        const iframe = document.createElement("iframe");
+        Object.assign(iframe.style, {
+            position: "fixed",
+            top: "0",
+            left: "-10000px",
+            width: "794px",
+            height: "1123px",
+            border: "none",
+            opacity: "0",
+            pointerEvents: "none",
+            zIndex: "99999"
+        });
+        document.body.appendChild(iframe);
 
-                return certs
-                    .filter(card => {
-                        const title = card.querySelector('.title')?.textContent || "";
-                        return relevantTitles.some(r => title.includes(r));
-                    })
-                    .map(card => {
-                        const title = card.querySelector('.title')?.textContent || "";
-                        const issuer = card.querySelector('.subtitle')?.textContent || "";
+        const win = iframe.contentWindow;
+        const doc = win.document;
 
-                        return `
-                            <li class="cert-item">
-                                <strong>${title}</strong>
-                                <span>${issuer}</span>
-                            </li>
-                        `;
-                    }).join("");
-            })(),
+        doc.open();
+        doc.write(html);
+        doc.close();
 
-            profileImage: profileImageBase64
+        let printed = false;
 
+        const doPrint = function () {
+            if (printed) return;
+            printed = true;
+
+            try {
+                win.focus();
+                win.print();
+                const cleanup = function () { iframe.remove(); };
+                win.addEventListener("afterprint", cleanup, { once: true });
+                setTimeout(cleanup, 60000);
+            } catch (err) {
+                console.error("Fallo print en iframe, usando ventana nueva:", err);
+                iframe.remove();
+                printViaPopup(html);
+            }
         };
 
-        // ============================
-        // 2. CARGAR PLANTILLA
-        // ============================
-        const response = await fetch("plantilla.html");
-
-        if (!response.ok) {
-            throw new Error("No se pudo cargar plantilla.html");
+        if (doc.readyState === "complete") {
+            setTimeout(doPrint, 300);
+        } else {
+            win.addEventListener("load", function () { setTimeout(doPrint, 400); }, { once: true });
         }
 
-        let template = await response.text();
+        setTimeout(doPrint, 3500);
+    }
 
-        // ============================
-        // 3. REEMPLAZO DE VARIABLES
-        // ============================
-        Object.entries(data).forEach(([key, value]) => {
-            const regex = new RegExp(`{{${key}}}`, "g");
-            template = template.replace(regex, value || "");
-        });
-
-        // ============================
-        // 4. ABRIR EN NUEVA VENTANA E IMPRIMIR
-        // ============================
-        const printWindow = window.open("", "_blank");
-
-        if (!printWindow) {
-            throw new Error("No se pudo abrir ventana. Permita pop-ups para este sitio.");
+    function generateCvPdf() {
+        const btn = document.getElementById("downloadCvBtn");
+        if (btn) {
+            btn.classList.add("disable");
+            if (!btn.dataset.originalHtml) {
+                btn.dataset.originalHtml = btn.innerHTML;
+            }
+            btn.innerHTML = '<span class="fa-solid fa-spinner fa-spin"></span> <span>Generando CV\u2026</span>';
         }
 
-        printWindow.document.write(template);
-        printWindow.document.close();
+        const run = async function () {
+            const profileImage = await imageToBase64($(".imagen-perfil"));
 
-        // Esperar a que cargue el contenido y estilos
-        printWindow.onload = () => {
-            printWindow.focus();
-            printWindow.print();
+            const data = {
+                name: text(document.querySelector(".animated-title")),
+                titles: [(
+                    $("#title_1") || document.querySelector('[data-key="title_1"]') || { textContent: "" }
+                ).textContent, (
+                    $("#title_2") || document.querySelector('[data-key="title_2"]') || { textContent: "" }
+                ).textContent, (
+                    $("#title_3") || document.querySelector('[data-key="title_3"]') || { textContent: "" }
+                ).textContent].filter(Boolean).join(" \u00b7 "),
+                profileImage: profileImage,
+                contact: getContact(),
+                summary: getSummary(),
+                experience: getExperience(),
+                education: getEducation(),
+                techStack: getTechStack(),
+                projects: getProjects(),
+                certifications: getCertifications()
+            };
+
+            let template = getTemplate();
+            if (!template) {
+                const res = await fetch("plantilla.html");
+                if (!res.ok) throw new Error("No se pudo cargar la plantilla del CV");
+                template = await res.text();
+            }
+
+            const rendered = fillTemplate(template, data);
+            const docHtml = await buildDocument(rendered);
+            printTemplate(docHtml);
         };
 
-    } catch (err) {
-        console.error("Error generando CV:", err);
-        alert("Error al abrir el CV. Verifique que los pop-ups estén permitidos.");
+        run().catch(function (err) {
+            console.error("Error generando CV:", err);
+            alert("Error al generar el CV. Int\u00e9ntalo nuevamente.");
+        }).then(function () {
+            if (btn) {
+                btn.classList.remove("disable");
+                btn.innerHTML = btn.dataset.originalHtml || btn.innerHTML;
+            }
+        });
     }
-}
 
-// botón
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("downloadCvBtn");
-    if (btn) {
+    window.generateCvPdf = generateCvPdf;
+
+    function bindButton() {
+        const btn = document.getElementById("downloadCvBtn");
+        if (!btn) return;
+        if (btn.dataset.listenerBound) return;
+        btn.dataset.listenerBound = "1";
         btn.addEventListener("click", generateCvPdf);
     }
-});
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", bindButton);
+    } else {
+        bindButton();
+    }
+})();

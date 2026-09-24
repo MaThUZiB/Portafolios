@@ -9,17 +9,15 @@ export const translations = {
     title_2: "Software Development Technician",
     title_3: "Computer Engineering Student",
 
-    about_1: "I am currently a Computer Engineering student in the evening program, with prior training in Analysis and Programming, as well as a degree in Business Administration and Commerce.",
+    about_1: "Web developer and Computer Engineering student with prior training in Software Development and Business Administration. I combine a business perspective with modern technology solutions.",
 
-    about_2: "I have experience in the administrative field, where I developed skills in team management, strategic planning, and continuous process improvement. This foundation has allowed me to integrate a business vision with technological development.",
+    about_2: "Professional experience as a full stack developer working with Laravel, Python and TypeScript in agile, collaborative teams, taking part in the full lifecycle of web applications, from design to deployment.",
 
-    about_3: "In the IT field, I have experience as a web developer working with Laravel in collaborative environments under agile methodologies, participating in application development and working in large-scale teams.",
+    about_3: "Knowledge of cloud services (AWS, Azure), application deployment and personal projects integrating artificial intelligence, system architecture and security best practices.",
 
-    about_4: "Additionally, I have developed various personal projects using different languages, frameworks, and modern tools, including AI integration, web development, and system architecture concepts.",
+    about_4: "I am currently deepening my expertise in infrastructure, networks and cybersecurity, focused on building robust, scalable and secure systems.",
 
-    about_5: "Currently, I am interested in directing my professional development towards infrastructure, networks, and cybersecurity, deepening my knowledge in systems management, scalable architectures, and cloud services, with the goal of building robust and efficient solutions.",
-
-    about_6: "I am characterized by being a proactive person, with an analytical approach and oriented towards continuous improvement, capable of proposing solutions, implementing them, and evaluating their results.",
+    about_5: "Proactive, analytical and results-driven: I propose solutions, implement them and evaluate their impact on the business.",
 
     project1_title: "Cloud Application Deployment (AWS)",
     project1_desc: "Deployment of applications on AWS using EC2, S3, and VPC, configuring network, security, and public access. This portfolio was implemented on an EC2 instance with complete web server configuration.",

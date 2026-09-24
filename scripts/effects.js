@@ -49,7 +49,7 @@ export function initParticles() {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(168, 85, 247, ${this.opacity})`;
+      ctx.fillStyle = `rgba(99, 102, 241, ${this.opacity})`;
       ctx.fill();
     }
   }
@@ -69,7 +69,7 @@ export function initParticles() {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(168, 85, 247, ${0.08 * (1 - dist / 150)})`;
+          ctx.strokeStyle = `rgba(99, 102, 241, ${0.08 * (1 - dist / 150)})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
@@ -100,10 +100,10 @@ export function initScrollProgress() {
     left: "0",
     height: "3px",
     width: "0%",
-    background: "linear-gradient(90deg, #A855F7, #C084FC, #EC4899)",
+    background: "linear-gradient(90deg, #4F46E5, #818CF8, #6366F1)",
     zIndex: "10000",
     transition: "width 0.1s linear",
-    boxShadow: "0 0 10px rgba(168, 85, 247, 0.5)"
+    boxShadow: "0 0 10px rgba(99, 102, 241, 0.45)"
   });
   document.body.prepend(bar);
 
@@ -122,7 +122,7 @@ export function initMouseGlow() {
     width: "500px",
     height: "500px",
     borderRadius: "50%",
-    background: "radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%)",
+    background: "radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%)",
     pointerEvents: "none",
     zIndex: "1",
     transform: "translate(-50%, -50%)",
