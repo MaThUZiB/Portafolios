@@ -12,6 +12,12 @@ export const galleries = {
             en: 'Integrated dashboard: livestock and inventory indicators, group status and module navigation.'
         }
     ],
-    'bee-fractal': [],
+    'bee-fractal': [
+        {
+            src: '../assets/proyectos/bee-fractal-inicio.png',
+            es: 'Página de inicio de B-MaiA: presentación del ecosistema de apicultura inteligente y acceso a sus herramientas.',
+            en: 'B-MaiA home page: introduction to the smart beekeeping ecosystem and access to its tools.'
+        }
+    ],
     'salon-vuala': []
 };
